@@ -7,5 +7,13 @@ class PufferFish extends MovableObject {
 
         this.x = 400 + Math.random() * 500; //Zahl zwischen 200 und 700
         this.y = 50 + Math.random() * 200; //Zahl zwischen 50 und 200
+        this.animate();
+    }
+
+    animate() {
+        setInterval(() => {
+                this.x -= 0.5;
+            },
+            1000 / 60)
     }
 }
