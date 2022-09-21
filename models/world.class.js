@@ -1,19 +1,6 @@
 class World {
     character = new Character();
-    enemies = [
-        new PufferFish(),
-        new PufferFish(),
-        new PufferFish(),
-    ];
-    lights = [
-        new Light()
-    ];
-    backgroundObjects = [
-        new BackgroundObject('img/3. Background/Legacy/Layers/5. Water/L1.png', 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/4.Fondo 2/L1.png', 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/3.Fondo 1/L1.png', 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/2. Floor/L1.png', 0)
-    ];
+    level = level1;
     canvas;
     ctx;
     keyboard;
@@ -38,10 +25,10 @@ class World {
 
         this.ctx.translate(this.camera_x, 0);
 
-        this.addObjectsToMap(this.backgroundObjects);
+        this.addObjectsToMap(this.level.backgroundObjects);
         this.addToMap(this.character);
-        this.addObjectsToMap(this.enemies);
-        this.addObjectsToMap(this.lights);
+        this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.level.lights);
 
         this.ctx.translate(-this.camera_x, 0);
 
