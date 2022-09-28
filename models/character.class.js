@@ -26,22 +26,24 @@ class Character extends MovableObject {
         setInterval(() => {
             this.swimming_sound.pause();
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.x += this.speed;
+                this.moveRight();
                 this.otherDirection = false;
                 this.swimming_sound.play();
             }
-            console.log(this.world.level.level_end_x);
+
             if (this.world.keyboard.LEFT && this.x > 0) {
-                this.x -= this.speed;
+                this.moveLeft();
                 this.otherDirection = true;
                 this.swimming_sound.play();
             }
+
             if (this.world.keyboard.UP && this.y > -70) {
-                this.y -= this.speed;
+                this.moveUp();
                 this.swimming_sound.play();
             }
+
             if (this.world.keyboard.DOWN && this.y < 250) {
-                this.y += this.speed;
+                this.moveDown();
                 this.swimming_sound.play();
             }
             this.world.camera_x = -this.x + 30;
@@ -54,13 +56,4 @@ class Character extends MovableObject {
             }
         }, 50);
     }
-
-
-    moveUp() {
-
-    };
-
-    moveDown() {
-
-    };
 }
