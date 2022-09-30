@@ -31,7 +31,7 @@ class MovableObject {
     }
 
     drawFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish) {
+        if (this instanceof PufferFish) {
             ctx.beginPath();
             ctx.lineWidth = '6';
             ctx.strokeStyle = 'red';
@@ -40,11 +40,21 @@ class MovableObject {
         }
     }
 
+    drawCharacterFrame(ctx) {
+        if (this instanceof Character) {
+            ctx.beginPath();
+            ctx.lineWidth = '6';
+            ctx.strokeStyle = 'red';
+            ctx.rect(this.x + 20, this.y + 80, this.width - 40, this.height - 110);
+            ctx.stroke();
+        }
+    }
+
     isColliding(mo) {
-        return this.x + this.width > mo.x &&
-            this.y + this.height > mo.y &&
-            this.x < mo.x &&
-            this.y < mo.y + mo.height
+        return this.x - 20 + this.width >= mo.x &&
+            this.y - 30 + this.height > mo.y &&
+            this.x + 20 < mo.x + mo.width &&
+            this.y + 80 < mo.y + mo.height
     }
 
     playAnimation(images) {
