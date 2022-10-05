@@ -52,11 +52,23 @@ class MovableObject {
         }
     }
 
+    // character.isColliding(enemy);
     isColliding(mo) {
         return this.x - 20 + this.width >= mo.x &&
             this.y - 30 + this.height > mo.y &&
             this.x + 20 < mo.x + mo.width &&
             this.y + 80 < mo.y + mo.height
+    }
+
+    hit() {
+        this.energy -= 5;
+        if (this.energy <= 0) {
+            this.energy = 0;
+        }
+    }
+
+    isDead() {
+        return this.energy == 0;
     }
 
     playAnimation(images) {
