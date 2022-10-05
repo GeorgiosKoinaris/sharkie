@@ -26,6 +26,13 @@ class Character extends MovableObject {
         'img/1.Sharkie/6.dead/1.Poisoned/11.png',
         'img/1.Sharkie/6.dead/1.Poisoned/12.png'
     ];
+    IMAGES_HURT_POISEN = [
+        'img/1.Sharkie/5.Hurt/1.Poisoned/1.png',
+        'img/1.Sharkie/5.Hurt/1.Poisoned/2.png',
+        'img/1.Sharkie/5.Hurt/1.Poisoned/3.png',
+        'img/1.Sharkie/5.Hurt/1.Poisoned/4.png',
+        'img/1.Sharkie/5.Hurt/1.Poisoned/5.png'
+    ];
     world;
     swimming_sound = new Audio('audio/swimming.mp3');
 
@@ -33,7 +40,7 @@ class Character extends MovableObject {
         super().loadImage('img/1.Sharkie/1.IDLE/1.png');
         this.loadImages(this.IMAGES_SWIM);
         this.loadImages(this.IMAGES_DEAD);
-
+        this.loadImages(this.IMAGES_HURT_POISEN);
         this.animate();
     }
 
@@ -66,10 +73,12 @@ class Character extends MovableObject {
         }, 1000 / 60);
 
         setInterval(() => {
+
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-            } else
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+            } else if (this.isHurt()) {
+                this.playAnimation(this.IMAGES_HURT_POISEN);
+            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 //walk animation
                 this.playAnimation(this.IMAGES_SWIM);
             }
