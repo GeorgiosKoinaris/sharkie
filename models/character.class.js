@@ -61,7 +61,6 @@ class Character extends MovableObject {
 
             if (this.world.keyboard.UP && this.y > -70) {
                 this.moveUp();
-                ergy
                 this.swimming_sound.play();
             }
 
