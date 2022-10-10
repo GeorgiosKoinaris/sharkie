@@ -6,6 +6,8 @@ class World {
     keyboard;
     camera_x = 0;
     statusBarLife = new StatusBarLife();
+    statusBarCoins = new StatusBarCoins();
+    statusBarPoison = new StatusBarPoison();
 
 
     constructor(canvas, keyboard) {
@@ -41,6 +43,8 @@ class World {
         this.ctx.translate(-this.camera_x, 0); //back 
         //--------Space for fixed Objects---------//
         this.addToMap(this.statusBarLife);
+        this.addToMap(this.statusBarCoins);
+        this.addToMap(this.statusBarPoison);
         this.ctx.translate(this.camera_x, 0); //forwards 
 
         this.addToMap(this.character);
