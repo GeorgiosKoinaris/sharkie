@@ -2,8 +2,36 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 0;
+    background-image: url('img/background-side/water-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
 }
 
 canvas {
     background-color: black;
+    display: block;
+}
+
+
+/*------Smartphones--------*/
+
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    }
+    h1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+    }
+    h1 {
+        display: none;
+    }
 }
