@@ -3,7 +3,7 @@ class ThrowableObjects extends MovableObject {
 
 
     constructor(x, y) {
-        super().loadImage('img/4. Marcadores/Posión/Light - Left.png');
+        super().loadImage('img/4. Marcadores/Posión/Animada/1.png');
         this.x = x;
         this.y = y;
         this.height = 80;
