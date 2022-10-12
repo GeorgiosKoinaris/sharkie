@@ -3,6 +3,15 @@ class MovableObject extends DrawableObject {
     otherDirection = false;
     energy = 100;
     lastHit = 0;
+    speedY = 5;
+
+
+    // Gravity for death under water
+    applyGravityForDeath() {
+        setInterval(() => {
+            this.y -= this.speedY;
+        }, 1000 / 40)
+    }
 
     // character.isColliding(enemy);
     isColliding(mo) {
