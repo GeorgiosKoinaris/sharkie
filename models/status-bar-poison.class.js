@@ -25,7 +25,6 @@ class StatusBarPoison extends DrawableObject {
         this.percentage = percentage; // => Zahl zwischen 0 & 5 ermitteln für die Bilder
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
-        console.log(path);
     }
 
     resolveImageIndex() {
