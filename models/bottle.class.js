@@ -1,8 +1,8 @@
 class Bottle extends MovableObject {
     x = 200;
     y = 50;
-    height = 70;
-    width = 50;
+    height = 80;
+    width = 60;
 
     constructor() {
         super().loadImage('img/4. Marcadores/Posión/Light - Left.png');
