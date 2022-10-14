@@ -15,7 +15,7 @@ class PufferFish extends MovableObject {
         this.loadImages(this.IMAGES_SWIM);
         this.speed = 0.15 + Math.random() * 0.5;
 
-        this.x = 400 + Math.random() * 500; //Zahl zwischen 200 und 700
+        this.x = 400 + Math.random() * 1500; //Zahl zwischen 200 und 700
         this.y = 50 + Math.random() * 200; //Zahl zwischen 50 und 200
         this.animate();
     }
@@ -29,7 +29,4 @@ class PufferFish extends MovableObject {
             this.playAnimation(this.IMAGES_SWIM);
         }, 200)
     }
-
-
-
 }
