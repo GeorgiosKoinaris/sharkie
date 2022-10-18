@@ -1,6 +1,6 @@
 class Jellyfish extends MovableObject {
-    height = 90;
-    width = 90;
+    height = 80;
+    width = 80;
 
     IMAGES_SWIM = [
         'img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png',
