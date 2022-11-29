@@ -33,6 +33,17 @@ class Character extends MovableObject {
         'img/1.Sharkie/5.Hurt/1.Poisoned/4.png',
         'img/1.Sharkie/5.Hurt/1.Poisoned/5.png'
     ];
+    IMAGES_ATTACK = [
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/1.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/2.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/3.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/4.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/5.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/6.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/7.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/8.png',
+    ];
+
     world;
     swimming_sound = new Audio('audio/swimming.mp3');
 
@@ -41,6 +52,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_SWIM);
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_HURT_POISEN);
+        this.loadImages(this.IMAGES_ATTACK);
         this.animate();
         // this.applyGravityForDeath();
     }
@@ -81,6 +93,9 @@ class Character extends MovableObject {
             } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 //walk animation
                 this.playAnimation(this.IMAGES_SWIM);
+            } else if (this.world.keyboard.SPACE) {
+                //attack animation
+                this.playAnimation(this.IMAGES_ATTACK);
             }
         }, 50);
     }
