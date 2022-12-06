@@ -46,6 +46,7 @@ class Character extends MovableObject {
 
     world;
     swimming_sound = new Audio('audio/swimming.mp3');
+    isAttacking = false;
 
     constructor() {
         super().loadImage('img/1.Sharkie/1.IDLE/1.png');
@@ -86,6 +87,10 @@ class Character extends MovableObject {
 
         setInterval(() => {
 
+            if (this.world.keyboard.SPACE && !this.isAttacking) {
+                this.isAttacking = true;
+                this.currentImage = 0;
+            }
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
             } else if (this.isHurt()) {
@@ -93,10 +98,19 @@ class Character extends MovableObject {
             } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 //walk animation
                 this.playAnimation(this.IMAGES_SWIM);
-            } else if (this.world.keyboard.SPACE) {
+            } else if (this.isAttacking) {
                 //attack animation
+                setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 50)
                 this.playAnimation(this.IMAGES_ATTACK);
             }
         }, 50);
     }
+
+    //Funktion für eine Animation die mehrfach abspielen kann bei umbau
+    // isAttacking() {
+    //     let timepassed = new Date().getTime() - this.world.keyboard.LAST_SPACE; //difference in ms
+    //     timepassed = timepassed / 1000; //difference in s
+    //     return timepassed < 0.5;
+    // }
+
 }
