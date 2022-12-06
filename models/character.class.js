@@ -34,14 +34,14 @@ class Character extends MovableObject {
         'img/1.Sharkie/5.Hurt/1.Poisoned/5.png'
     ];
     IMAGES_ATTACK = [
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/1.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/2.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/3.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/4.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/5.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/6.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/7.png',
-        'img/1.Sharkie/4.Attack/Bubble trap/For Whale/Whitout bubbles/8.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/1.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/2.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/3.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/4.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/5.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/6.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/7.png',
+        'img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/8.png'
     ];
 
     world;
