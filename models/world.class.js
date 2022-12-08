@@ -33,7 +33,7 @@ class World {
 
     checkThrowObjects() {
         if (this.keyboard.SPACE) {
-            let poison = new ThrowableObjects(this.character.x + 130, this.character.y + 50);
+            let poison = new ThrowableObjects(this.character.x + 140, this.character.y + 85);
             this.throwableObjects.push(poison);
         }
     }
