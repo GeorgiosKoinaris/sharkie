@@ -12,6 +12,22 @@ class Character extends MovableObject {
         'img/1.Sharkie/3.Swim/5.png',
         'img/1.Sharkie/3.Swim/6.png',
     ];
+    IMAGES_IDLE = [
+        'img/1.Sharkie/2.Long_IDLE/i1.png',
+        'img/1.Sharkie/2.Long_IDLE/I2.png',
+        'img/1.Sharkie/2.Long_IDLE/I3.png',
+        'img/1.Sharkie/2.Long_IDLE/I4.png',
+        'img/1.Sharkie/2.Long_IDLE/I5.png',
+        'img/1.Sharkie/2.Long_IDLE/I6.png',
+        'img/1.Sharkie/2.Long_IDLE/I7.png',
+        'img/1.Sharkie/2.Long_IDLE/I8.png',
+        'img/1.Sharkie/2.Long_IDLE/I9.png',
+        'img/1.Sharkie/2.Long_IDLE/I10.png',
+        'img/1.Sharkie/2.Long_IDLE/I11.png',
+        'img/1.Sharkie/2.Long_IDLE/I12.png',
+        'img/1.Sharkie/2.Long_IDLE/I13.png',
+        'img/1.Sharkie/2.Long_IDLE/I14.png',
+    ]
     IMAGES_DEAD = [
         'img/1.Sharkie/6.dead/1.Poisoned/1.png',
         'img/1.Sharkie/6.dead/1.Poisoned/2.png',
@@ -46,6 +62,9 @@ class Character extends MovableObject {
     world;
     swimming_sound = new Audio('audio/swimming.mp3');
     isAttacking = false;
+    lastMove = new Date().getTime();
+    secondsWaiting = 8;
+
 
     constructor() {
         super().loadImage('img/1.Sharkie/1.IDLE/1.png');
@@ -53,8 +72,16 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_HURT_POISEN);
         this.loadImages(this.IMAGES_ATTACK);
+        this.loadImages(this.IMAGES_IDLE);
         this.animate();
+        this.isWaiting();
         // this.applyGravityForDeath();
+    }
+
+    isWaiting() {
+        let timePassed = new Date().getTime() - this.lastMove; // Difference in ms
+        timePassed = timePassed / 1000; // Difference in s
+        return timePassed > this.secondsWaiting;
     }
 
     animate() {
@@ -97,13 +124,19 @@ class Character extends MovableObject {
             } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 //walk animation
                 this.playAnimation(this.IMAGES_SWIM);
+                this.lastMove = new Date().getTime();
             } else if (this.isAttacking) {
                 //attack animation
                 setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 50)
                 this.playAnimation(this.IMAGES_ATTACK);
+                this.lastMove = new Date().getTime();
+            } else if (this.isWaiting()) {
+                this.playAnimation(this.IMAGES_IDLE);
             }
         }, 50);
     }
+
+
 
     //Funktion für eine Animation die mehrfach abspielen kann bei umbau
     // isAttacking() {
