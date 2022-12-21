@@ -54,6 +54,7 @@ class DrawableObject {
             this instanceof Jellyfish ||
             this instanceof Endboss ||
             this instanceof Bottle ||
+            this instanceof ThrowableObjects ||
             this instanceof Coin;
     }
 }

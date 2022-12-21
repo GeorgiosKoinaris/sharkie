@@ -127,13 +127,13 @@ class Character extends MovableObject {
                 this.lastMove = new Date().getTime();
             } else if (this.isAttacking) {
                 //attack animation
-                setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 50)
+                setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
                 this.playAnimation(this.IMAGES_ATTACK);
                 this.lastMove = new Date().getTime();
             } else if (this.isWaiting()) {
                 this.playAnimation(this.IMAGES_IDLE);
             }
-        }, 50);
+        }, 100);
     }
 
 

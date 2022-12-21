@@ -9,6 +9,7 @@ class World {
     statusBarCoins = new StatusBarCoins();
     statusBarPoison = new StatusBarPoison();
     throwableObjects = [];
+    bubbleThrow = false;
 
 
     constructor(canvas, keyboard) {
@@ -27,14 +28,25 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisions();
+            this.checkBubbleCollisions()
             this.checkThrowObjects();
-        }, 200);
+        }, 50);
     }
 
     checkThrowObjects() {
-        if (this.keyboard.SPACE) {
-            let poison = new ThrowableObjects(this.character.x + 140, this.character.y + 85);
-            this.throwableObjects.push(poison);
+        if (this.keyboard.SPACE && !this.bubbleThrow) {
+            this.bubbleThrow = true;
+            this.throwObject();
+        }
+    }
+
+    throwObject() {
+        if (this.bubbleThrow) {
+            let bubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85);
+            this.throwableObjects.push(bubble);
+            setTimeout(() => {
+                this.bubbleThrow = false;
+            }, 700);
         }
     }
 
@@ -45,6 +57,16 @@ class World {
                 this.character.hit();
                 this.statusBarLife.setPercentage(this.character.energy);
             }
+        });
+    }
+
+    checkBubbleCollisions() {
+        this.throwableObjects.forEach((bubble) => {
+            this.level.enemies.forEach((enemy) => {
+                if (bubble.isColliding(enemy)) {
+                    console.log('Bubble Hit');
+                }
+            })
         });
     }
 
