@@ -15,6 +15,13 @@ class Bottle extends MovableObject {
         'img/4. Marcadores/Posión/Animada/8.png'
     ]
 
+    offset = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    }
+
     constructor() {
         super().loadImage('img/4. Marcadores/Posión/Animada/1.png');
         this.loadImages(this.IMAGES_POISON);

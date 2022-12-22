@@ -34,6 +34,13 @@ class Endboss extends MovableObject {
 
     hadFirstContact = false;
 
+    offset = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    }
+
     constructor() {
         super().loadImage(this.IMAGES_SWIM[0]);
         this.loadImages(this.IMAGES_SPAWNING);

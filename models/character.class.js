@@ -65,6 +65,13 @@ class Character extends MovableObject {
     lastMove = new Date().getTime();
     secondsWaiting = 8;
 
+    offset = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    }
+
 
     constructor() {
         super().loadImage('img/1.Sharkie/1.IDLE/1.png');
