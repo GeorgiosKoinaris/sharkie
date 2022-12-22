@@ -17,11 +17,11 @@ class Jellyfish extends MovableObject {
     ];
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
-    };
+        x: 1,
+        y: 7,
+        width: 7,
+        height: 10
+    }
 
     constructor() {
         super().loadImage('img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png');

@@ -35,10 +35,10 @@ class Endboss extends MovableObject {
     hadFirstContact = false;
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
+        x: 25,
+        y: 230,
+        width: 35,
+        height: 95
     }
 
     constructor() {

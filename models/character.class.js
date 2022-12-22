@@ -66,10 +66,10 @@ class Character extends MovableObject {
     secondsWaiting = 8;
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
+        x: 33,
+        y: 88,
+        width: 33,
+        height: 42
     }
 
 

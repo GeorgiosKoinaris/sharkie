@@ -16,10 +16,10 @@ class PufferFish extends MovableObject {
     ]
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
+        x: 1,
+        y: 3,
+        width: 5,
+        height: 15
     }
 
     constructor() {

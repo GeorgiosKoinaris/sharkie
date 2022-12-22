@@ -37,20 +37,18 @@ class DrawableObject {
             ctx.rect(this.x, this.y, this.width, this.height);
             ctx.stroke();
         }
-    }
-
-    drawCharacterFrame(ctx) {
-        if (this instanceof Character) {
+        if (this.permittedFrame()) {
             ctx.beginPath();
-            ctx.lineWidth = '6';
-            ctx.strokeStyle = 'red';
-            ctx.rect(this.x + 30, this.y + 80, this.width - 60, this.height - 120);
+            ctx.lineWidth = '4';
+            ctx.strokeStyle = 'yellow';
+            ctx.rect(this.x + this.offset.x, this.y + this.offset.y, (this.x + this.width - this.offset.width) - (this.x + this.offset.x), (this.y + this.height - this.offset.height) - (this.y + this.offset.y));
             ctx.stroke();
         }
     }
 
     permittedFrame() {
-        return this instanceof PufferFish ||
+        return this instanceof Character ||
+            this instanceof PufferFish ||
             this instanceof Jellyfish ||
             this instanceof Endboss ||
             this instanceof Bottle ||

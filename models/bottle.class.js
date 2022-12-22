@@ -16,10 +16,10 @@ class Bottle extends MovableObject {
     ]
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
+        x: 10,
+        y: 30,
+        width: 10,
+        height: 5
     }
 
     constructor() {

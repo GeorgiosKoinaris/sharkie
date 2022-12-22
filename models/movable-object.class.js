@@ -6,10 +6,10 @@ class MovableObject extends DrawableObject {
     speedY = 5;
 
     offset = {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0
     }
 
     // Gravity for death under water
@@ -19,12 +19,11 @@ class MovableObject extends DrawableObject {
         }, 1000 / 40)
     }
 
-    // character.isColliding(enemy);
     isColliding(mo) {
-        return this.x - 20 + this.width >= mo.x &&
-            this.y - 30 + this.height > mo.y &&
-            this.x + 20 < mo.x + mo.width &&
-            this.y + 80 < mo.y + mo.height
+        return this.x + this.width - this.offset.width > mo.x + mo.offset.x &&
+            this.y + this.height - this.offset.height > mo.y + mo.offset.y &&
+            this.x + this.offset.x < mo.x + mo.width - mo.offset.width &&
+            this.y + this.offset.y < mo.y + mo.height - mo.offset.height;
     }
 
     hit() {
