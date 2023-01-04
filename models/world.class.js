@@ -64,7 +64,7 @@ class World {
         this.throwableObjects.forEach((bubble) => {
             this.level.enemies.forEach((enemy) => {
                 if (bubble.isColliding(enemy)) {
-                    console.log('Bubble Hit');
+                    console.log(`Bubble hit ${enemy}`)
                 }
             })
         });
