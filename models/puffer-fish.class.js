@@ -1,6 +1,7 @@
 class PufferFish extends MovableObject {
     height = 60;
     width = 60;
+    isDead = false;
 
     IMAGES_SWIM = [
         'img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png',
@@ -25,6 +26,7 @@ class PufferFish extends MovableObject {
     constructor() {
         super().loadImage('img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png');
         this.loadImages(this.IMAGES_SWIM);
+        this.loadImages(this.IMAGES_DEAD);
         this.speed = 0.15 + Math.random() * 0.5;
 
         this.x = 400 + Math.random() * 1500; //Zahl zwischen 200 und 700
@@ -42,7 +44,7 @@ class PufferFish extends MovableObject {
         }, 200)
 
         setInterval(() => {
-            if (this.isDead()) {
+            if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);
             }
         }, 50);

@@ -2,6 +2,7 @@ class Jellyfish extends MovableObject {
     height = 80;
     width = 80;
     direction;
+    isDead = false;
 
     IMAGES_SWIM = [
         'img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png',
@@ -26,6 +27,7 @@ class Jellyfish extends MovableObject {
     constructor() {
         super().loadImage('img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png');
         this.loadImages(this.IMAGES_SWIM);
+        this.loadImages(this.IMAGES_DEAD);
         this.speed = 0.15 + Math.random() * 0.5;
 
         this.x = 600 + Math.random() * 2000; //Zahl zwischen 200 und 700
