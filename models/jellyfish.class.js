@@ -52,14 +52,13 @@ class Jellyfish extends MovableObject {
         }, 1000 / 60)
 
         setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            }
-        }, 50);
-
-        setInterval(() => {
             this.playAnimation(this.IMAGES_SWIM);
         }, 200)
-    }
 
+        setInterval(() => {
+            if (this.isDead) {
+                this.playAnimation(this.IMAGES_DEAD);
+            }
+        }, 200);
+    }
 }

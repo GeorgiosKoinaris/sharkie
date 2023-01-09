@@ -47,6 +47,6 @@ class PufferFish extends MovableObject {
             if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);
             }
-        }, 50);
+        }, 200);
     }
 }
