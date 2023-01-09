@@ -61,11 +61,11 @@ class World {
     }
 
     checkBubbleCollisions() {
-        this.throwableObjects.forEach((bubble) => {
+        this.throwableObjects.forEach((bubble, index) => {
             this.level.enemies.forEach((enemy) => {
                 if (bubble.isColliding(enemy)) {
-                    console.log(`Bubble hit enemy`);
                     enemy.isDead = true;
+                    this.throwableObjects.splice(index, 1);
                 }
             })
         });

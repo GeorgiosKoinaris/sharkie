@@ -18,10 +18,10 @@ class Jellyfish extends MovableObject {
     ];
 
     offset = {
-        x: 1,
-        y: 7,
-        width: 7,
-        height: 10
+        x: 8,
+        y: 8,
+        width: 8,
+        height: 13
     }
 
     constructor() {
