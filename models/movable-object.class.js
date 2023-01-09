@@ -16,7 +16,7 @@ class MovableObject extends DrawableObject {
     applyGravityForDeath() {
         setInterval(() => {
             this.y -= this.speedY;
-        }, 1000 / 40)
+        }, 150)
     }
 
     isColliding(mo) {
@@ -51,6 +51,19 @@ class MovableObject extends DrawableObject {
         this.img = this.imageCache[path];
         this.currentImage++;
     }
+
+    //Function for play an Amimation only once for example "death-animation"
+    // playAnimationOnce(images) {
+    //     let i;
+    //     if (this.currentImage < images.lenght) {
+    //         i = this.currentImage;
+    //     } else {
+    //         i = this.currentImage % 4 + 3;
+    //     }
+    //     let path = images[i];
+    //     this.img = this.imageCache[path];
+    //     this.currentImage++;
+    // }
 
     moveLeft() {
         this.x -= this.speed;

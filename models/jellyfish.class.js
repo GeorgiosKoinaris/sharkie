@@ -58,6 +58,7 @@ class Jellyfish extends MovableObject {
         setInterval(() => {
             if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);
+                this.applyGravityForDeath();
             }
         }, 200);
     }
