@@ -111,7 +111,6 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_LONG_IDLE_SLEEP);
         this.animate();
         this.isWaiting();
-        // this.isSleeping();
         // this.applyGravityForDeath();
     }
 
@@ -121,10 +120,6 @@ class Character extends MovableObject {
         return timePassed > this.secondsWaiting;
     }
 
-    // isSleeping() {
-    //     let timePassed = new Date().getTime() - this.lastMove; // Difference in ms
-    //     return timePassed > 9400;
-    // }
 
     animate() {
         setInterval(() => {
@@ -175,67 +170,26 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_ATTACK);
                 this.lastMove = new Date().getTime();
             } else {
-                if (!this.isMoving() && !this.isWaiting()) {
-                    //idle animation
-                    this.playAnimation(this.IMAGES_IDLE);
-                    this.isSleeping = false;
-                }
-                if (this.isWaiting() && !this.isSleeping) {
-                    //long_idle animation
-                    this.playAnimation(this.IMAGES_LONG_IDLE);
-                    setTimeout(() => this.isSleeping = true, this.IMAGES_LONG_IDLE.length * 100);
-                }
-                if (this.isSleeping) {
-                    //long_idle_sleep animation
-                    this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-                }
+                this.playIdleAnimations();
             }
-
-
-
-            //------------------TEST 2---------------------------------!!!!!!!!!
-            // } else {
-            //     this.playAnimation(this.IMAGES_IDLE);
-            //     if (this.isWaiting()) {
-            //         //long_idle animation
-            //         this.playAnimation(this.IMAGES_LONG_IDLE);
-            //         this.isSleeping = true;
-            //     }
-            //     if (this.isSleeping) {
-            //         //long_idle_sleep animation
-            //         this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-            //     }
-            //     this.isSleeping = false;
-            // }
-
-
-            //------------------TEST 1---------------------------------!!!!!!!!!
-            // } else {
-            //     if (!this.isMoving() && !this.isWaiting()) {
-            //         //idle animation
-            //         this.playAnimation(this.IMAGES_IDLE);
-            //     } else if (this.isWaiting()) {
-            //         //long_idle animation
-            //         this.playAnimation(this.IMAGES_LONG_IDLE);
-            //     }
-            //     // if (this.isSleeping) {
-            //     //     //long_idle_sleep animation
-            //     //     this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-            //     // }
-            // }
-
-            //-----------------URSPRÜNGLICHE FORM-------------------------!!!!!!!
-            // } else if (!this.isMoving() && !this.isWaiting()) {
-            //     //idle animation
-            //     this.playAnimation(this.IMAGES_IDLE);
-            // } else if (this.isWaiting()) {
-            //     //long_idle animation
-            //     this.playAnimation(this.IMAGES_LONG_IDLE);
-            // } else if (this.isSleeping()) {
-            //     //long_idle_sleep animation
-            //     this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-            // }
         }, 100);
+    }
+
+    playIdleAnimations() {
+        if (!this.isMoving() && !this.isWaiting()) {
+            //idle animation
+            this.playAnimation(this.IMAGES_IDLE);
+            this.isSleeping = false;
+        }
+        if (this.isWaiting() && !this.isSleeping) {
+            //long_idle animation
+            this.playAnimation(this.IMAGES_LONG_IDLE);
+            setTimeout(() => this.isSleeping = true, this.IMAGES_LONG_IDLE.length * 100);
+        }
+        if (this.isSleeping) {
+            //long_idle_sleep animation
+            this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
+        }
     }
 
     isMoving() {
