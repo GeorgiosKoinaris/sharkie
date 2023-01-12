@@ -54,11 +54,9 @@ class MovableObject extends DrawableObject {
 
     //Function for play an Amimation only once for example "death-animation"
     // playAnimationOnce(images) {
-    //     let i;
-    //     if (this.currentImage < images.lenght) {
-    //         i = this.currentImage;
-    //     } else {
-    //         i = this.currentImage % 4 + 3;
+    //     let i = this.currentImage % images.length;
+    //     if (i >= (images.length - 4)) {
+    //         i = i % images.length;
     //     }
     //     let path = images[i];
     //     this.img = this.imageCache[path];
