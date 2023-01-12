@@ -175,16 +175,38 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_ATTACK);
                 this.lastMove = new Date().getTime();
             } else {
-                this.playAnimation(this.IMAGES_IDLE);
-                if (this.isWaiting()) {
+                if (!this.isMoving() && !this.isWaiting()) {
+                    //idle animation
+                    this.playAnimation(this.IMAGES_IDLE);
+                    this.isSleeping = false;
+                }
+                if (this.isWaiting() && !this.isSleeping) {
                     //long_idle animation
                     this.playAnimation(this.IMAGES_LONG_IDLE);
+                    setTimeout(() => this.isSleeping = true, 1300);
                 }
-                // if (this.isSleeping) {
-                //     //long_idle_sleep animation
-                //     this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-                // }
+                if (this.isSleeping) {
+                    //long_idle_sleep animation
+                    this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
+                }
             }
+
+
+
+            //------------------TEST 2---------------------------------!!!!!!!!!
+            // } else {
+            //     this.playAnimation(this.IMAGES_IDLE);
+            //     if (this.isWaiting()) {
+            //         //long_idle animation
+            //         this.playAnimation(this.IMAGES_LONG_IDLE);
+            //         this.isSleeping = true;
+            //     }
+            //     if (this.isSleeping) {
+            //         //long_idle_sleep animation
+            //         this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
+            //     }
+            //     this.isSleeping = false;
+            // }
 
 
             //------------------TEST 1---------------------------------!!!!!!!!!
