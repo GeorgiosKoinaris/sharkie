@@ -183,7 +183,7 @@ class Character extends MovableObject {
                 if (this.isWaiting() && !this.isSleeping) {
                     //long_idle animation
                     this.playAnimation(this.IMAGES_LONG_IDLE);
-                    setTimeout(() => this.isSleeping = true, 1300);
+                    setTimeout(() => this.isSleeping = true, this.IMAGES_LONG_IDLE.length * 100);
                 }
                 if (this.isSleeping) {
                     //long_idle_sleep animation
