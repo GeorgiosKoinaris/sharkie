@@ -90,7 +90,7 @@ class Character extends MovableObject {
     isAttacking = false;
     lastMove = new Date().getTime();
     secondsWaiting = 4;
-    isSleeping = false;
+    // isSleeping = false;
 
     offset = {
         x: 33,
@@ -119,7 +119,6 @@ class Character extends MovableObject {
         timePassed = timePassed / 1000; // Difference in s
         return timePassed > this.secondsWaiting;
     }
-
 
     animate() {
         setInterval(() => {
@@ -176,21 +175,30 @@ class Character extends MovableObject {
     }
 
     playIdleAnimations() {
-        if (!this.isMoving() && !this.isWaiting()) {
-            //idle animation
-            this.playAnimation(this.IMAGES_IDLE);
-            this.isSleeping = false;
+            if (!this.isWaiting()) {
+                //idle animation
+                this.playAnimation(this.IMAGES_IDLE);
+            } else {
+                //long_idle_sleep animation
+                this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
+            }
         }
-        if (this.isWaiting() && !this.isSleeping) {
-            //long_idle animation
-            this.playAnimation(this.IMAGES_LONG_IDLE);
-            setTimeout(() => this.isSleeping = true, this.IMAGES_LONG_IDLE.length * 100);
-        }
-        if (this.isSleeping) {
-            //long_idle_sleep animation
-            this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
-        }
-    }
+        // --------------------------IDLE Animation with 3 stages / isSeleeping Variable auskommentiert------------------
+
+    //     playIdleAnimations() {
+    //         if (!this.isMoving() && !this.isWaiting()) {
+    //             //idle animation
+    //             this.playAnimation(this.IMAGES_IDLE);
+    //             this.isSleeping = false;
+    //         } else if (this.isWaiting() && !this.isSleeping) {
+    //             //long_idle animation
+    //             // setTimeout(() => this.isSleeping = true, this.IMAGES_LONG_IDLE.length * 100);
+    //             this.playAnimation(this.IMAGES_LONG_IDLE);
+    //         } else if (this.isSleeping) {
+    //             //long_idle_sleep animation
+    //             this.playAnimation(this.IMAGES_LONG_IDLE_SLEEP);
+    //         }
+    //     }
 
     isMoving() {
         return this.world.keyboard.RIGHT ||
