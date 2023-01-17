@@ -71,6 +71,29 @@ class World {
         });
     }
 
+    //------------Check if character is colliding with collactible Items---------
+    //
+    //
+    //
+    checkCollectibles() {
+        checkPoisonCollision();
+        checkCoinCollision();
+    }
+
+    checkPoisonCollision() {
+            this.level.enemies.forEach((enemy) => {
+                if (this.character.isColliding(enemy)) {
+                    this.character.hit();
+                    this.statusBarLife.setPercentage(this.character.energy);
+                }
+            });
+        }
+        //
+        //
+        //
+        //
+        //
+
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -88,7 +111,7 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.lights);
         this.addObjectsToMap(this.throwableObjects);
-        this.addObjectsToMap(this.level.bottle);
+        this.addObjectsToMap(this.level.poison);
         this.addObjectsToMap(this.level.coin);
 
         this.ctx.translate(-this.camera_x, 0);

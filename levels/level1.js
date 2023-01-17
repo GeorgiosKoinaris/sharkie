@@ -33,12 +33,12 @@ const level1 = new Level(
         new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L2.png', 720 * 3),
         new BackgroundObject('img/3. Background/Layers/2. Floor/L2.png', 720 * 3),
     ], [
-        new Bottle(),
-        new Bottle(),
-        new Bottle(),
-        new Bottle(),
-        new Bottle(),
-        new Bottle()
+        new Poison(),
+        new Poison(),
+        new Poison(),
+        new Poison(),
+        new Poison(),
+        new Poison()
     ], [
         new Coin(),
         new Coin(),

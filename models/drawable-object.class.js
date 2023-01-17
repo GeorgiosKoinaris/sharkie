@@ -51,7 +51,7 @@ class DrawableObject {
             this instanceof PufferFish ||
             this instanceof Jellyfish ||
             this instanceof Endboss ||
-            this instanceof Bottle ||
+            this instanceof Poison ||
             this instanceof ThrowableObjects ||
             this instanceof Coin;
     }

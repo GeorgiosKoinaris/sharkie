@@ -1,4 +1,4 @@
-class Bottle extends MovableObject {
+class Poison extends MovableObject {
     x = 200;
     y = 50;
     height = 80;
