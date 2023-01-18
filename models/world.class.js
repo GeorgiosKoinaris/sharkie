@@ -28,8 +28,9 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisions();
-            this.checkBubbleCollisions()
+            this.checkBubbleCollisions();
             this.checkThrowObjects();
+            this.checkCollectiblesCollisions();
         }, 50);
     }
 
@@ -75,24 +76,34 @@ class World {
     //
     //
     //
-    checkCollectibles() {
-        checkPoisonCollision();
-        checkCoinCollision();
+    checkCollectiblesCollisions() {
+        this.checkPoisonCollision();
+        this.checkCoinCollision();
     }
 
     checkPoisonCollision() {
-            this.level.enemies.forEach((enemy) => {
-                if (this.character.isColliding(enemy)) {
-                    this.character.hit();
-                    this.statusBarLife.setPercentage(this.character.energy);
-                }
-            });
-        }
-        //
-        //
-        //
-        //
-        //
+        this.level.poisons.forEach((poison, index) => {
+            if (this.character.isColliding(poison)) {
+                console.log('poison collect');
+                this.level.poisons.splice(index, 1);
+            }
+        });
+    }
+
+    checkCoinCollision() {
+        this.level.coins.forEach((coin, index) => {
+            if (this.character.isColliding(coin)) {
+                console.log('coin collect');
+                this.level.coins.splice(index, 1);
+            }
+        });
+    }
+
+    //
+    //
+    //
+    //
+    //---------------------------------------------------------------------------//
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -111,8 +122,8 @@ class World {
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.lights);
         this.addObjectsToMap(this.throwableObjects);
-        this.addObjectsToMap(this.level.poison);
-        this.addObjectsToMap(this.level.coin);
+        this.addObjectsToMap(this.level.poisons);
+        this.addObjectsToMap(this.level.coins);
 
         this.ctx.translate(-this.camera_x, 0);
 
