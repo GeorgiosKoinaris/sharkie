@@ -74,10 +74,6 @@ class World {
         });
     }
 
-    //------------Check if character is colliding with collactible Items---------
-    //
-    //
-    //
     checkCollectiblesCollisions() {
         this.checkPoisonCollision();
         this.checkCoinCollision();
@@ -86,28 +82,32 @@ class World {
     checkPoisonCollision() {
         this.level.poisons.forEach((poison, index) => {
             if (this.character.isColliding(poison)) {
-                console.log('poison collect');
-                this.level.poisons.splice(index, 1);
-                this.poisonBottle_sound.play();
+                this.increasePoisonBar(index);
             }
         });
+    }
+
+    increasePoisonBar(index) {
+        this.poisonBottle_sound.play();
+        this.character.addPoison();
+        this.statusBarPoison.setPercentage(this.character.poison);
+        this.level.poisons.splice(index, 1);
     }
 
     checkCoinCollision() {
         this.level.coins.forEach((coin, index) => {
             if (this.character.isColliding(coin)) {
-                console.log('coin collect');
-                this.level.coins.splice(index, 1);
-                this.coin_sound.play();
+                this.increaseCoinBar(index);
             }
         });
     }
 
-    //
-    //
-    //
-    //
-    //---------------------------------------------------------------------------//
+    increaseCoinBar(index) {
+        this.coin_sound.play();
+        this.character.addCoin();
+        this.statusBarCoins.setPercentage(this.character.coin);
+        this.level.coins.splice(index, 1);
+    }
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

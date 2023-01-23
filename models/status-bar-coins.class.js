@@ -8,7 +8,7 @@ class StatusBarCoins extends DrawableObject {
         'img/4. Marcadores/orange/100_ copia 2.png',
     ];
 
-    percentage = 100;
+    percentage = 0;
 
     constructor() {
         super();
@@ -28,15 +28,15 @@ class StatusBarCoins extends DrawableObject {
     }
 
     resolveImageIndex() {
-        if (this.percentage == 100) {
+        if (this.percentage == 10) {
             return 5;
-        } else if (this.percentage > 80) {
+        } else if (this.percentage >= 8) {
             return 4;
-        } else if (this.percentage > 60) {
+        } else if (this.percentage >= 6) {
             return 3;
-        } else if (this.percentage > 40) {
+        } else if (this.percentage >= 4) {
             return 2;
-        } else if (this.percentage > 20) {
+        } else if (this.percentage >= 2) {
             return 1;
         } else {
             return 0;
