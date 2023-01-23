@@ -149,7 +149,7 @@ class Character extends MovableObject {
 
         setInterval(() => {
 
-            if (this.world.keyboard.SPACE && !this.isAttacking) {
+            if (this.world.keyboard.SPACE || this.world.keyboard.F && !this.isAttacking) {
                 this.isAttacking = true;
                 this.currentImage = 0;
             }
