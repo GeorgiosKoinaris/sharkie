@@ -10,6 +10,8 @@ class World {
     statusBarPoison = new StatusBarPoison();
     throwableObjects = [];
     bubbleThrow = false;
+    coin_sound = new Audio('audio/coin.mp3');
+    poisonBottle_sound = new Audio('audio/bottle.mp3');
 
 
     constructor(canvas, keyboard) {
@@ -27,7 +29,7 @@ class World {
 
     run() {
         setInterval(() => {
-            this.checkCollisions();
+            +this.checkCollisions();
             this.checkBubbleCollisions();
             this.checkThrowObjects();
             this.checkCollectiblesCollisions();
@@ -86,6 +88,7 @@ class World {
             if (this.character.isColliding(poison)) {
                 console.log('poison collect');
                 this.level.poisons.splice(index, 1);
+                this.poisonBottle_sound.play();
             }
         });
     }
@@ -95,6 +98,7 @@ class World {
             if (this.character.isColliding(coin)) {
                 console.log('coin collect');
                 this.level.coins.splice(index, 1);
+                this.coin_sound.play();
             }
         });
     }
@@ -146,7 +150,7 @@ class World {
         }
 
         mo.draw(this.ctx);
-        mo.drawFrame(this.ctx);
+        // mo.drawFrame(this.ctx);
 
         if (mo.otherDirection) {
             this.flipImageBack(mo);
