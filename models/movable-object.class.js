@@ -2,8 +2,6 @@ class MovableObject extends DrawableObject {
     speed = 0.15;
     otherDirection = false;
     energy = 100;
-    coin = 0;
-    poison = 0;
     lastHit = 0;
     speedY = 5;
 
@@ -27,21 +25,6 @@ class MovableObject extends DrawableObject {
             this.x + this.offset.x < mo.x + mo.width - mo.offset.width &&
             this.y + this.offset.y < mo.y + mo.height - mo.offset.height;
     }
-
-    addCoin() {
-        this.coin += 1;
-        if (this.coin <= 0) {
-            this.coin = 0;
-        }
-    }
-
-    addPoison() {
-        this.poison += 1;
-        if (this.poison <= 0) {
-            this.poison = 0;
-        }
-    }
-
 
     hit() {
         this.energy -= 5;

@@ -8,7 +8,8 @@ class World {
     statusBarLife = new StatusBarLife();
     statusBarCoins = new StatusBarCoins();
     statusBarPoison = new StatusBarPoison();
-    throwableObjects = [];
+    throwingBubble = [];
+    throwingPoisonBubble = [];
     bubbleThrow = false;
     coin_sound = new Audio('audio/coin.mp3');
     poisonBottle_sound = new Audio('audio/bottle.mp3');
@@ -28,30 +29,49 @@ class World {
     }
 
     run() {
-        setInterval(() => {
-            +this.checkCollisions();
-            this.checkBubbleCollisions();
-            this.checkThrowObjects();
-            this.checkCollectiblesCollisions();
-        }, 50);
-    }
-
-    checkThrowObjects() {
+            setInterval(() => {
+                this.checkCollisions();
+                this.checkBubbleCollisions();
+                this.checkBubbleObjects();
+                this.checkCollectiblesCollisions();
+                this.checkPoisonObjects();
+            }, 50);
+        }
+        //----------Hier evtl SPACE || F in die if-Abfrage einfügen----------------//
+    checkBubbleObjects() {
         if (this.keyboard.SPACE && !this.bubbleThrow) {
             this.bubbleThrow = true;
-            this.throwObject();
+            this.throwBubbleObject();
         }
     }
 
-    throwObject() {
+    throwBubbleObject() {
         if (this.bubbleThrow) {
-            let bubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85);
-            this.throwableObjects.push(bubble);
+            let bubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85, false);
+            this.throwingBubble.push(bubble);
             setTimeout(() => {
                 this.bubbleThrow = false;
             }, 700);
         }
     }
+
+    //------------------------------First Try for poison bubble---------------------------------!!
+    checkPoisonObjects() {
+        if (this.keyboard.F && this.character.poison > 0) {
+            this.bubbleThrow = true;
+            this.throwPoisonObject();
+        }
+    }
+
+    throwPoisonObject() {
+        let poisonBubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85, true);
+        this.throwingPoisonBubble.push(poisonBubble);
+        setTimeout(() => {
+            this.bubbleThrow = false;
+        }, 700);
+    }
+
+    //------------------------------------------------------------------------------------------!!
 
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
@@ -63,11 +83,11 @@ class World {
     }
 
     checkBubbleCollisions() {
-        this.throwableObjects.forEach((bubble, index) => {
+        this.throwingBubble.forEach((bubble, index) => {
             this.level.enemies.forEach((enemy) => {
                 if (bubble.isColliding(enemy)) {
                     enemy.isDead = true;
-                    this.throwableObjects.splice(index, 1);
+                    this.throwingBubble.splice(index, 1);
                 }
             })
         });
@@ -124,7 +144,8 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.lights);
-        this.addObjectsToMap(this.throwableObjects);
+        this.addObjectsToMap(this.throwingBubble);
+        this.addObjectsToMap(this.throwingPoisonBubble);
         this.addObjectsToMap(this.level.poisons);
         this.addObjectsToMap(this.level.coins);
 

@@ -4,6 +4,8 @@ class Character extends MovableObject {
     speed = 10;
     height = 180;
     width = 180;
+    coin = 0;
+    poison = 0;
     IMAGES_SWIM = [
         'img/1.Sharkie/3.Swim/1.png',
         'img/1.Sharkie/3.Swim/2.png',
@@ -205,5 +207,19 @@ class Character extends MovableObject {
             this.world.keyboard.LEFT ||
             this.world.keyboard.UP ||
             this.world.keyboard.DOWN
+    }
+
+    addCoin() {
+        this.coin += 1;
+        if (this.coin <= 0) {
+            this.coin = 0;
+        }
+    }
+
+    addPoison() {
+        this.poison += 1;
+        if (this.poison <= 0) {
+            this.poison = 0;
+        }
     }
 }
