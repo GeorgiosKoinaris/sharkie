@@ -1,3 +1,21 @@
+/* kavoon-regular - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Kavoon';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/kavoon-v21-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/kavoon-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/kavoon-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/kavoon-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/kavoon-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/kavoon-v21-latin-regular.svg#Kavoon') format('svg');
+    /* Legacy iOS */
+}
+
 body {
     display: flex;
     align-items: center;
@@ -8,6 +26,12 @@ body {
     background-position: center;
     height: 100vh;
     color: white;
+    font-family: 'kavoon';
+}
+
+h1 {
+    font-size: 45px;
+    letter-spacing: 6px;
 }
 
 canvas {
