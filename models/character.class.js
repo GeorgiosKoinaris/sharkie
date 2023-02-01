@@ -222,4 +222,11 @@ class Character extends MovableObject {
             this.poison = 0;
         }
     }
+
+    decreasePoison() {
+        this.poison -= 1;
+        if (this.poison <= 0) {
+            this.poison = 0;
+        }
+    }
 }

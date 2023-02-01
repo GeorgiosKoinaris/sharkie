@@ -29,15 +29,16 @@ class World {
     }
 
     run() {
-            setInterval(() => {
-                this.checkCollisions();
-                this.checkBubbleCollisions();
-                this.checkBubbleObjects();
-                this.checkCollectiblesCollisions();
-                this.checkPoisonObjects();
-            }, 50);
-        }
-        //----------Hier evtl SPACE || F in die if-Abfrage einfügen----------------//
+        setInterval(() => {
+            this.checkCollisions();
+            this.checkBubbleCollisions();
+            this.checkBubbleObjects();
+            this.checkCollectiblesCollisions();
+            this.checkPoisonObjects();
+        }, 50);
+    }
+
+    //----------Hier evtl SPACE || F in die if-Abfrage einfügen----------------//
     checkBubbleObjects() {
         if (this.keyboard.SPACE && !this.bubbleThrow) {
             this.bubbleThrow = true;
@@ -57,15 +58,19 @@ class World {
 
     //------------------------------First Try for poison bubble---------------------------------!!
     checkPoisonObjects() {
-        if (this.keyboard.F && this.character.poison > 0) {
+        if (this.keyboard.F && !this.bubbleThrow && this.character.poison > 0) {
             this.bubbleThrow = true;
             this.throwPoisonObject();
         }
     }
 
     throwPoisonObject() {
-        let poisonBubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85, true);
-        this.throwingPoisonBubble.push(poisonBubble);
+        if (this.bubbleThrow) {
+            let poisonBubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85, true);
+            this.throwingPoisonBubble.push(poisonBubble);
+            this.character.decreasePoison();
+            this.statusBarPoison.setPercentage(this.character.poison);
+        }
         setTimeout(() => {
             this.bubbleThrow = false;
         }, 700);
