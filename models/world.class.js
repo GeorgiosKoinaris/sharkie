@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    endBoss = new Endboss();
     level = level1;
     canvas;
     ctx;
@@ -95,22 +96,12 @@ class World {
         });
     }
 
-    // checkCollisions() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (this.character.isColliding(enemy)) {
-    //             this.character.hit();
-    //             this.statusBarLife.setPercentage(this.character.energy);
-    //         }
-    //     });
-    // }
-
-    //-----------------------------Endboss Hit with Bubble------------------------------------!!
+    //-----------------------------Endboss Hit with Bubble---------------------------------------------------------------------!!
     checkPoisonBubbleCollisions() {
         this.throwingPoisonBubble.forEach((bubble, index) => {
             this.level.endBoss.forEach((endBoss) => {
                 if (bubble.isColliding(endBoss)) {
-                    // this.endBoss.hit();
-                    // this.statusBarLife.setPercentage(this.character.energy);
+                    this.endBoss.bossHit();
                     this.throwingPoisonBubble.splice(index, 1);
                 }
             })
