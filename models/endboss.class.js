@@ -88,7 +88,18 @@ class Endboss extends MovableObject {
                 i = 0;
                 this.hadFirstContact = true;
             }
-        }, 250)
+        }, 250);
+
+        // setInterval(() => {
+
+        //     if (this.isDead()) {
+        //         //animation for death
+        //         this.playAnimation(this.IMAGES_DEAD);
+        //     } else if (this.isHurt()) {
+        //         //hurt animation
+        //         this.playAnimation(this.IMAGES_HURT_POISEN);
+        //     }
+        // }, 100);
     }
 
 }

@@ -5,7 +5,8 @@ const level1 = new Level(
         new PufferFish(),
         new Jellyfish(),
         new Jellyfish(),
-        new Jellyfish(),
+        new Jellyfish()
+    ], [
         new Endboss()
     ], [
         new Light()

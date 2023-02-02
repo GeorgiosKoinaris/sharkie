@@ -32,13 +32,13 @@ class World {
         setInterval(() => {
             this.checkCollisions();
             this.checkBubbleCollisions();
+            this.checkPoisonBubbleCollisions();
             this.checkBubbleObjects();
             this.checkCollectiblesCollisions();
             this.checkPoisonObjects();
         }, 50);
     }
 
-    //----------Hier evtl SPACE || F in die if-Abfrage einfügen----------------//
     checkBubbleObjects() {
         if (this.keyboard.SPACE && !this.bubbleThrow) {
             this.bubbleThrow = true;
@@ -56,7 +56,6 @@ class World {
         }
     }
 
-    //------------------------------First Try for poison bubble---------------------------------!!
     checkPoisonObjects() {
         if (this.keyboard.F && !this.bubbleThrow && this.character.poison > 0) {
             this.bubbleThrow = true;
@@ -75,8 +74,6 @@ class World {
             this.bubbleThrow = false;
         }, 700);
     }
-
-    //------------------------------------------------------------------------------------------!!
 
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
@@ -97,6 +94,29 @@ class World {
             })
         });
     }
+
+    // checkCollisions() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if (this.character.isColliding(enemy)) {
+    //             this.character.hit();
+    //             this.statusBarLife.setPercentage(this.character.energy);
+    //         }
+    //     });
+    // }
+
+    //-----------------------------Endboss Hit with Bubble------------------------------------!!
+    checkPoisonBubbleCollisions() {
+        this.throwingPoisonBubble.forEach((bubble, index) => {
+            this.level.endBoss.forEach((endBoss) => {
+                if (bubble.isColliding(endBoss)) {
+                    // this.endBoss.hit();
+                    // this.statusBarLife.setPercentage(this.character.energy);
+                    this.throwingPoisonBubble.splice(index, 1);
+                }
+            })
+        });
+    }
+
 
     checkCollectiblesCollisions() {
         this.checkPoisonCollision();
@@ -148,6 +168,7 @@ class World {
 
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.level.endBoss);
         this.addObjectsToMap(this.level.lights);
         this.addObjectsToMap(this.throwingBubble);
         this.addObjectsToMap(this.throwingPoisonBubble);
