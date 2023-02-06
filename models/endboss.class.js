@@ -2,7 +2,9 @@ class Endboss extends MovableObject {
     world;
     height = 450;
     width = 350;
+    speed = 1.5;
     y = -40;
+
 
     IMAGES_SPAWNING = [
         'img/2.Enemy/3 Final Enemy/1.Introduce/1.png',
@@ -89,21 +91,36 @@ class Endboss extends MovableObject {
                         this.bossActions();
                     }
                     i++;
-                }, 250);
+                }, 200);
             }
         }, 100);
+
+        setInterval(() => {
+            if (this.hadFirstContact) {
+                this.moveLeft();
+            }
+        }, 1000 / 60)
     }
 
     bossActions() {
-        if (this.isHurt()) {
-            //hurt animation
-            this.playAnimation(this.IMAGES_HURT);
-        }
         if (this.isDead()) {
             //animation for death
             this.playAnimation(this.IMAGES_DEAD);
+            this.applyGravityForDeath();
+        } else if (this.isHurt()) {
+            //hurt animation
+            this.playAnimation(this.IMAGES_HURT);
         } else {
             this.playAnimation(this.IMAGES_SWIM);
+        }
+    }
+
+    hit() {
+        this.energy -= 25;
+        if (this.energy <= 0) {
+            this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
         }
     }
 }
