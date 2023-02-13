@@ -1,6 +1,7 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+intervalIds = [];
 
 
 function init() {
@@ -12,6 +13,14 @@ function init() {
     console.log('My character is', world.character);
 }
 
+function setStoppableInterval(fn, time) {
+    let id = setInterval(fn, time);
+    intervalIds.push(id);
+}
+
+function stopGame() {
+    intervalIds.forEach(clearInterval);
+}
 
 document.addEventListener('keydown', (e) => {
     if (e.keyCode == 37) {

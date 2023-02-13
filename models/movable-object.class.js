@@ -14,7 +14,7 @@ class MovableObject extends DrawableObject {
 
     // Gravity for death under water
     applyGravityForDeath() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.y -= this.speedY;
         }, 150)
     }

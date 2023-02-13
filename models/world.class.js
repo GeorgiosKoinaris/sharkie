@@ -29,7 +29,7 @@ class World {
     }
 
     run() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.checkCollisions();
             this.checkBubbleCollisions();
             this.checkPoisonBubbleCollisions();

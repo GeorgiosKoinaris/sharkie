@@ -36,7 +36,7 @@ class Jellyfish extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.y <= 0) {
                 this.direction = 'down'
             }
@@ -51,11 +51,11 @@ class Jellyfish extends MovableObject {
             }
         }, 1000 / 60)
 
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.playAnimation(this.IMAGES_SWIM);
         }, 200)
 
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);
                 this.applyGravityForDeath();

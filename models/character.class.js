@@ -123,7 +123,7 @@ class Character extends MovableObject {
     }
 
     animate() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.swimming_sound.pause();
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveRight();
@@ -149,7 +149,7 @@ class Character extends MovableObject {
             this.world.camera_x = -this.x + 30;
         }, 1000 / 60);
 
-        setInterval(() => {
+        setStoppableInterval(() => {
 
             if (this.world.keyboard.SPACE || this.world.keyboard.F && !this.isAttacking) {
                 this.isAttacking = true;

@@ -19,7 +19,7 @@ class ThrowableObjects extends MovableObject {
         } else {
             this.loadImage(this.IMAGE_BUBBLE);
         }
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.x += 10;
         }, 35);
     }

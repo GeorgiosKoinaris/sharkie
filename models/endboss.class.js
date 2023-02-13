@@ -80,11 +80,11 @@ class Endboss extends MovableObject {
 
     animate() {
         let i = 0
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (world.character.x > 2189 && !this.hadFirstContact) {
                 i = 0;
                 this.hadFirstContact = true;
-                setInterval(() => {
+                setStoppableInterval(() => {
                     // this.activateBossSound();
                     if (i < 10) {
                         this.playAnimation(this.IMAGES_SPAWNING);
@@ -96,7 +96,7 @@ class Endboss extends MovableObject {
             }
         }, 100);
 
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.hadFirstContact) {
                 this.moveLeft();
             }
