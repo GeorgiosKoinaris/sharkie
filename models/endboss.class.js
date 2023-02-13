@@ -58,6 +58,7 @@ class Endboss extends MovableObject {
     ];
 
     hadFirstContact = false;
+    isAttacking = false;
 
     offset = {
         x: 25,
@@ -110,6 +111,10 @@ class Endboss extends MovableObject {
         } else if (this.isHurt()) {
             //hurt animation
             this.playAnimation(this.IMAGES_HURT);
+        } else if (this.isAttacking) {
+            //attack animation
+            setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
+            this.playAnimation(this.IMAGES_ATTACK);
         } else {
             this.playAnimation(this.IMAGES_SWIM);
         }

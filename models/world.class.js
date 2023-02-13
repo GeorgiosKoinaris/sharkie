@@ -94,6 +94,7 @@ class World {
                 if (this.character.isColliding(endBoss)) {
                     this.character.hit();
                     this.statusBarLife.setPercentage(this.character.energy);
+                    endBoss.isAttacking = true;
                 }
             })
         });

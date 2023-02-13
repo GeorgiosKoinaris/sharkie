@@ -167,7 +167,7 @@ class Character extends MovableObject {
                 this.lastMove = new Date().getTime();
             } else if (this.isAttacking) {
                 //attack animation
-                setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
+                setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 250)
                 this.playAnimation(this.IMAGES_ATTACK);
                 this.lastMove = new Date().getTime();
             } else {

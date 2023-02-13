@@ -30,7 +30,7 @@ class Jellyfish extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.speed = 0.15 + Math.random() * 0.5;
 
-        this.x = 600 + Math.random() * 2000; //Zahl zwischen 200 und 700
+        this.x = 600 + Math.random() * 1600; //Zahl zwischen 600 und 1600
         this.y = 0; //Zahl fängt bei 0 an um die die animation zu triggern
         this.animate();
     }
