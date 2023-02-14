@@ -39,6 +39,12 @@ canvas {
     display: block;
 }
 
+.startscreen {
+    width: 720px;
+    height: 420px;
+    background-image: 'img/background-side/water-bg.jpg';
+}
+
 
 /*------Smartphones--------*/
 
