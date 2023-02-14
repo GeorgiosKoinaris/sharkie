@@ -32,10 +32,11 @@ class Jellyfish extends MovableObject {
 
         this.x = 600 + Math.random() * 1600; //Zahl zwischen 600 und 1600
         this.y = 0; //Zahl fängt bei 0 an um die die animation zu triggern
+        this.swimAnimation();
         this.animate();
     }
 
-    animate() {
+    swimAnimation() {
         setStoppableInterval(() => {
             if (this.y <= 0) {
                 this.direction = 'down'
@@ -54,7 +55,9 @@ class Jellyfish extends MovableObject {
         setStoppableInterval(() => {
             this.playAnimation(this.IMAGES_SWIM);
         }, 200)
+    }
 
+    animate() {
         setStoppableInterval(() => {
             if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);

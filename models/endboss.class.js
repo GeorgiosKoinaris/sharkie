@@ -76,12 +76,13 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.x = 2550;
         this.animate();
+        this.swimToCharacter();
     }
 
     animate() {
         let i = 0
         setStoppableInterval(() => {
-            if (world.character.x > 2189 && !this.hadFirstContact) {
+            if (this.bossAppears()) {
                 i = 0;
                 this.hadFirstContact = true;
                 setStoppableInterval(() => {
@@ -95,7 +96,13 @@ class Endboss extends MovableObject {
                 }, 200);
             }
         }, 100);
+    }
 
+    bossAppears() {
+        return world.character.x > 2189 && !this.hadFirstContact;
+    }
+
+    swimToCharacter() {
         setStoppableInterval(() => {
             if (this.hadFirstContact) {
                 this.moveLeft();
@@ -105,19 +112,28 @@ class Endboss extends MovableObject {
 
     bossActions() {
         if (this.isDead()) {
-            //animation for death
-            this.playAnimation(this.IMAGES_DEAD);
-            this.applyGravityForDeath();
+            this.deadAnimation();
         } else if (this.isHurt()) {
-            //hurt animation
-            this.playAnimation(this.IMAGES_HURT);
+            this.hurtAnimation();
         } else if (this.isAttacking) {
-            //attack animation
-            setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
-            this.playAnimation(this.IMAGES_ATTACK);
+            this.attackAnimation();
         } else {
             this.playAnimation(this.IMAGES_SWIM);
         }
+    }
+
+    attackAnimation() {
+        setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
+        this.playAnimation(this.IMAGES_ATTACK);
+    }
+
+    hurtAnimation() {
+        this.playAnimation(this.IMAGES_HURT);
+    }
+
+    deadAnimation() {
+        this.playAnimation(this.IMAGES_DEAD);
+        this.applyGravityForDeath();
     }
 
     hit() {

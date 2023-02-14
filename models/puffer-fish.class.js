@@ -32,9 +32,10 @@ class PufferFish extends MovableObject {
         this.x = 400 + Math.random() * 1500; //Zahl zwischen 200 und 700
         this.y = 50 + Math.random() * 200; //Zahl zwischen 50 und 200
         this.animate();
+        this.swimAnimation();
     }
 
-    animate() {
+    swimAnimation() {
         setStoppableInterval(() => {
             this.moveLeft();
         }, 1000 / 60)
@@ -42,7 +43,10 @@ class PufferFish extends MovableObject {
         setStoppableInterval(() => {
             this.playAnimation(this.IMAGES_SWIM);
         }, 200)
+    }
 
+
+    animate() {
         setStoppableInterval(() => {
             if (this.isDead) {
                 this.playAnimation(this.IMAGES_DEAD);
