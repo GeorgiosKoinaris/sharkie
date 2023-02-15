@@ -43,6 +43,17 @@ canvas {
     width: 720px;
     height: 420px;
     background-image: 'img/background-side/water-bg.jpg';
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.startscreen img {
+    width: 250px;
+}
+
+.startscreenButton {
+    cursor: pointer;
 }
 
 
