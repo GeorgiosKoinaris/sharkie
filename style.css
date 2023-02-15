@@ -42,7 +42,6 @@ canvas {
 .startscreen {
     width: 720px;
     height: 420px;
-    background-image: 'img/background-side/water-bg.jpg';
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,8 +51,40 @@ canvas {
     width: 250px;
 }
 
-.startscreenButton {
+.button {
     cursor: pointer;
+}
+
+.instructionsScreen {
+    width: 720px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.instructionsDesign {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 35px;
+}
+
+.instructionDesignImg {
+    width: 230px;
+}
+
+.key-F-image {
+    width: 70px;
+}
+
+.menuButton {
+    display: flex;
+    justify-content: center;
+}
+
+.menuButton img {
+    width: 100px;
 }
 
 
