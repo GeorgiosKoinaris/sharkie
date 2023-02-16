@@ -86,7 +86,7 @@ class Endboss extends MovableObject {
                 i = 0;
                 this.hadFirstContact = true;
                 setStoppableInterval(() => {
-                    // this.activateBossSound();
+                    this.bossSound();
                     if (i < 10) {
                         this.playAnimation(this.IMAGES_SPAWNING);
                     } else if (this.hadFirstContact) {
@@ -100,6 +100,11 @@ class Endboss extends MovableObject {
 
     bossAppears() {
         return world.character.x > 2189 && !this.hadFirstContact;
+    }
+
+    bossSound() {
+        theme_sound.pause();
+        bossBattle_sound.play();
     }
 
     swimToCharacter() {
@@ -117,6 +122,7 @@ class Endboss extends MovableObject {
             this.hurtAnimation();
         } else if (this.isAttacking) {
             this.attackAnimation();
+            bossAttack_sound.play();
         } else {
             this.playAnimation(this.IMAGES_SWIM);
         }

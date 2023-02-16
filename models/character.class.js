@@ -91,8 +91,7 @@ class Character extends MovableObject {
     swimming_sound = new Audio('audio/swimming.mp3');
     isAttacking = false;
     lastMove = new Date().getTime();
-    secondsWaiting = 4;
-    // isSleeping = false;
+    secondsWaiting = 8;
 
     offset = {
         x: 33,
@@ -180,8 +179,7 @@ class Character extends MovableObject {
     characterAnimation() {
         setStoppableInterval(() => {
             if (this.prepareAttack()) {
-                this.isAttacking = true;
-                this.currentImage = 0;
+                this.attackPrepared();
             }
             if (this.isDead()) {
                 this.deadAnimation();
@@ -201,21 +199,29 @@ class Character extends MovableObject {
         return this.world.keyboard.SPACE || this.world.keyboard.F && !this.isAttacking
     }
 
+    attackPrepared() {
+        this.isAttacking = true;
+        bubble_sound.play();
+        this.currentImage = 0;
+    }
+
     deadAnimation() {
         this.playAnimation(this.IMAGES_DEAD);
     }
 
     isHurtAnimation() {
         this.playAnimation(this.IMAGES_HURT_POISEN);
+        hurt_sound.play();
     }
 
     moveAnimation() {
         this.playAnimation(this.IMAGES_SWIM);
+        theme_sound.play();
         this.lastMove = new Date().getTime();
     }
 
     attackAnimation() {
-        setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 250)
+        setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
         this.playAnimation(this.IMAGES_ATTACK);
         this.lastMove = new Date().getTime();
     }
