@@ -92,6 +92,7 @@ class Character extends MovableObject {
     isAttacking = false;
     lastMove = new Date().getTime();
     secondsWaiting = 8;
+    isDying = false;
 
     offset = {
         x: 33,
@@ -205,8 +206,12 @@ class Character extends MovableObject {
     }
 
     deadAnimation() {
+        if (!this.isDying) {
+            this.currentImage = 0;
+            this.isDying = true;
+        }
         this.playAnimation(this.IMAGES_DEAD);
-        setTimeout(stopGame, this.IMAGES_DEAD.length * 100);
+        setTimeout(stopGame, this.IMAGES_DEAD.length * 95);
     }
 
     isHurtAnimation() {

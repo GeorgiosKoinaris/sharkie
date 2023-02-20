@@ -59,6 +59,7 @@ class Endboss extends MovableObject {
 
     hadFirstContact = false;
     isAttacking = false;
+    isDying = false;
 
     offset = {
         x: 25,
@@ -138,8 +139,12 @@ class Endboss extends MovableObject {
     }
 
     deadAnimation() {
+        if (!this.isDying) {
+            this.currentImage = 0;
+            this.isDying = true;
+        }
         this.playAnimation(this.IMAGES_DEAD);
-        setTimeout(stopGame, this.IMAGES_DEAD.length * 200);
+        setTimeout(stopGame, this.IMAGES_DEAD.length * 195);
         this.applyGravityForDeath();
     }
 
