@@ -43,6 +43,8 @@ function setStoppableInterval(fn, time) {
 
 function stopGame() {
     intervalIds.forEach(clearInterval);
+    this.theme_sound.pause();
+    this.bossBattle_sound.pause();
 }
 
 document.addEventListener('keydown', (e) => {

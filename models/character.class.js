@@ -113,7 +113,6 @@ class Character extends MovableObject {
         this.swimAnimation();
         this.characterAnimation();
         this.isWaiting();
-        // this.applyGravityForDeath();
     }
 
     isWaiting() {
@@ -207,6 +206,7 @@ class Character extends MovableObject {
 
     deadAnimation() {
         this.playAnimation(this.IMAGES_DEAD);
+        setTimeout(stopGame, this.IMAGES_DEAD.length * 100);
     }
 
     isHurtAnimation() {

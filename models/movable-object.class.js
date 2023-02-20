@@ -4,6 +4,7 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     speedY = 5;
+    isApplyingGravityForDeath = false;
 
     offset = {
         x: 0,
@@ -14,6 +15,7 @@ class MovableObject extends DrawableObject {
 
     // Gravity for death under water
     applyGravityForDeath() {
+        this.isApplyingGravityForDeath = true;
         setStoppableInterval(() => {
             this.y -= this.speedY;
         }, 150)
@@ -64,7 +66,9 @@ class MovableObject extends DrawableObject {
     // }
 
     moveLeft() {
-        this.x -= this.speed;
+        if (!this.isApplyingGravityForDeath) {
+            this.x -= this.speed;
+        }
     }
 
     moveRight() {
