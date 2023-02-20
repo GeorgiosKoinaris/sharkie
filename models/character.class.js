@@ -216,7 +216,6 @@ class Character extends MovableObject {
 
     moveAnimation() {
         this.playAnimation(this.IMAGES_SWIM);
-        theme_sound.play();
         this.lastMove = new Date().getTime();
     }
 
