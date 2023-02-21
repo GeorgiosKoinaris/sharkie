@@ -144,7 +144,8 @@ class Endboss extends MovableObject {
             this.isDying = true;
         }
         this.playAnimation(this.IMAGES_DEAD);
-        setTimeout(stopGame, this.IMAGES_DEAD.length * 195);
+        setTimeout(stopGame, this.IMAGES_DEAD.length * 200);
+        setTimeout(winGame, this.IMAGES_DEAD.length * 200);
         this.applyGravityForDeath();
     }
 

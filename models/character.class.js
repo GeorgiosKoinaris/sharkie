@@ -211,7 +211,8 @@ class Character extends MovableObject {
             this.isDying = true;
         }
         this.playAnimation(this.IMAGES_DEAD);
-        setTimeout(stopGame, this.IMAGES_DEAD.length * 95);
+        setTimeout(stopGame, this.IMAGES_DEAD.length * 100);
+        setTimeout(looseGame, this.IMAGES_DEAD.length * 100);
     }
 
     isHurtAnimation() {

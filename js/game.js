@@ -6,6 +6,8 @@ button_sound = new Audio('audio/button.mp3');
 bossAttack_sound = new Audio('audio/bossAttack.mp3');
 bossBattle_sound = new Audio('audio/bossBattle.mp3');
 bubble_sound = new Audio('audio/bubble.mp3');
+win_sound = new Audio('audio/win.mp3');
+loose_sound = new Audio('audio/loose.mp3');
 hurt_sound = new Audio('audio/hurt.mp3');
 intervalIds = [];
 
@@ -16,6 +18,18 @@ function init() {
     world = new World(canvas, keyboard);
 
     // console.log('My character is', world.character);
+}
+
+function looseGame() {
+    document.getElementById('loosingScreen').style.display = 'flex';
+    document.getElementById('canvas').style.display = "none";
+    loose_sound.play();
+}
+
+function winGame() {
+    document.getElementById('winningScreen').style.display = 'flex';
+    document.getElementById('canvas').style.display = "none";
+    win_sound.play();
 }
 
 function startGame() {
