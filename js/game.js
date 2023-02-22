@@ -16,6 +16,8 @@ function init() {
     canvas = document.getElementById('canvas');
     createLevel1();
     world = new World(canvas, keyboard);
+    reloadMusic();
+    startGame();
 
     // console.log('My character is', world.character);
 }
@@ -63,6 +65,16 @@ function stopGame() {
     intervalIds.forEach(clearInterval);
     this.theme_sound.pause();
     this.bossBattle_sound.pause();
+}
+
+function restartGame() {
+    reloadMusic();
+    init();
+}
+
+function reloadMusic() {
+    this.theme_sound.load();
+    this.bossBattle_sound.load();
 }
 
 document.addEventListener('keydown', (e) => {

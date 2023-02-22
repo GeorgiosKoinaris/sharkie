@@ -31,12 +31,12 @@
 
 </head>
 
-<body onload="init()">
+<body>
     <h1>Sharky</h1>
     <div>
         <div id="startscreen" class="startscreen">
             <div><img src="img/1.Sharkie/1.IDLE/Prewiew.gif" alt="" srcset=""></div>
-            <div onclick="startGame()" class="button"><img src="img/6.Botones/Start/2.png" alt="" srcset=""></div>
+            <div onclick="init()" class="button"><img src="img/6.Botones/Start/2.png" alt="" srcset=""></div>
             <div onclick="howToPlay()" class="button"><img src="img/6.Botones/Start/5.png" alt="" srcset=""></div>
         </div>
 
@@ -61,7 +61,7 @@
         <div id="winningScreen">
             <img class="winningScreenImg" src="img/6.Botones/Tittles/You win/Mesa de trabajo 1.png" alt="">
             <div class="flex">
-                <img onclick="startGame()" class="bigButton button" src="img/6.Botones/Try again/Recurso 17.png" alt="">
+                <img onclick="restartGame()" class="bigButton button" src="img/6.Botones/Try again/Recurso 17.png" alt="">
                 <img onclick="startScreen()" class="bigButton button " src="img/6.Botones/Key/6.png" alt="">
             </div>
         </div>
@@ -69,7 +69,7 @@
         <div id="loosingScreen">
             <img class="loosingScreenImg" src="img/6.Botones/Tittles/Game Over/Recurso 13.png" alt="">
             <div class="flex">
-                <img onclick="startGame()" class="bigButton button" src="img/6.Botones/Try again/Recurso 17.png" alt="">
+                <img onclick="restartGame()" class="bigButton button" src="img/6.Botones/Try again/Recurso 17.png" alt="">
                 <img onclick="startScreen()" class="bigButton button " src="img/6.Botones/Key/6.png" alt="">
             </div>
         </div>
