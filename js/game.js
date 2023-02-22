@@ -25,6 +25,7 @@ function init() {
 function startGame() {
     theme_sound.play();
     document.getElementById('canvas').style.display = "block";
+    document.getElementById('canvasScreen').style.display = "block";
     document.getElementById('startscreen').style.display = "none";
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
@@ -48,6 +49,7 @@ function looseGame() {
     stopGame();
     document.getElementById('loosingScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
+    document.getElementById('canvasScreen').style.display = "none";
     loose_sound.play();
 }
 
@@ -55,6 +57,7 @@ function winGame() {
     stopGame();
     document.getElementById('winningScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
+    document.getElementById('canvasScreen').style.display = "none";
     win_sound.play();
 }
 

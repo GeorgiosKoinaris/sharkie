@@ -41,6 +41,9 @@ canvas {
     box-shadow: 0px 0 10px 10px rgb(0 0 0 / 20%);
 }
 
+
+/**********************************general classes*****************************************/
+
 .column {
     display: flex;
     flex-direction: column;
@@ -50,6 +53,15 @@ canvas {
 
 .flex {
     display: flex;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.02);
+    transition: 125ms ease-in-out;
 }
 
 
@@ -67,13 +79,41 @@ canvas {
     width: 250px;
 }
 
-.button {
-    cursor: pointer;
+#canvasScreen {
+    position: relative;
+    display: none;
 }
 
-.button:hover {
-    transform: scale(1.02);
-    transition: 125ms ease-in-out;
+.volumeBtn {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+}
+
+.volumeBtn img {
+    height: 25px;
+}
+
+.menuBtn {
+    position: absolute;
+    top: 10px;
+    right: 105px;
+}
+
+.menuBtn img {
+    width: 85px;
+    height: 25px;
+}
+
+.fullScreenBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.fullScreenBtn img {
+    width: 85px;
+    height: 25px;
 }
 
 .instructionsScreen {
