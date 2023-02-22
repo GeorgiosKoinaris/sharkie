@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
     world;
     height = 450;
     width = 350;
-    speed = 1.8;
+    speed = 2.5;
     y = -40;
 
 
@@ -124,9 +124,15 @@ class Endboss extends MovableObject {
         } else if (this.isAttacking) {
             this.attackAnimation();
             bossAttack_sound.play();
+        } else if (this.bossReachLevelEnd()) {
+            looseGame();
         } else {
             this.playAnimation(this.IMAGES_SWIM);
         }
+    }
+
+    bossReachLevelEnd() {
+        return this.x <= 10;
     }
 
     attackAnimation() {
@@ -144,7 +150,6 @@ class Endboss extends MovableObject {
             this.isDying = true;
         }
         this.playAnimation(this.IMAGES_DEAD);
-        setTimeout(stopGame, this.IMAGES_DEAD.length * 200);
         setTimeout(winGame, this.IMAGES_DEAD.length * 200);
         this.applyGravityForDeath();
     }
