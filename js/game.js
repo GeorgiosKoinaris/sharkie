@@ -20,6 +20,28 @@ function init() {
     // console.log('My character is', world.character);
 }
 
+function startGame() {
+    theme_sound.play();
+    document.getElementById('canvas').style.display = "block";
+    document.getElementById('startscreen').style.display = "none";
+    document.getElementById('loosingScreen').style.display = "none";
+    document.getElementById('winningScreen').style.display = "none";
+}
+
+function howToPlay() {
+    document.getElementById('instructionsScreen').style.display = "flex";
+    document.getElementById('startscreen').style.display = "none";
+    button_sound.play();
+}
+
+function startScreen() {
+    button_sound.play();
+    document.getElementById('startscreen').style.display = "flex";
+    document.getElementById('instructionsScreen').style.display = "none";
+    document.getElementById('loosingScreen').style.display = "none";
+    document.getElementById('winningScreen').style.display = "none";
+}
+
 function looseGame() {
     document.getElementById('loosingScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
@@ -30,24 +52,6 @@ function winGame() {
     document.getElementById('winningScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
     win_sound.play();
-}
-
-function startGame() {
-    document.getElementById('canvas').style.display = "block";
-    document.getElementById('startscreen').style.display = "none";
-    this.theme_sound.play();
-}
-
-function howToPlay() {
-    document.getElementById('instructionsScreen').style.display = "flex";
-    document.getElementById('startscreen').style.display = "none";
-    this.button_sound.play();
-}
-
-function startScreen() {
-    document.getElementById('startscreen').style.display = "flex";
-    document.getElementById('instructionsScreen').style.display = "none";
-    this.button_sound.play();
 }
 
 function setStoppableInterval(fn, time) {
