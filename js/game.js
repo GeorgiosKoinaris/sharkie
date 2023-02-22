@@ -45,14 +45,14 @@ function startScreen() {
 }
 
 function looseGame() {
-    stopGame()
+    stopGame();
     document.getElementById('loosingScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
     loose_sound.play();
 }
 
 function winGame() {
-    stopGame()
+    stopGame();
     document.getElementById('winningScreen').style.display = 'flex';
     document.getElementById('canvas').style.display = "none";
     win_sound.play();
