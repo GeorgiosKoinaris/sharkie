@@ -11,8 +11,6 @@ class World {
     throwingBubble = [];
     throwingPoisonBubble = [];
     bubbleThrow = false;
-    coin_sound = new Audio('audio/coin.mp3');
-    poisonBottle_sound = new Audio('audio/bottle.mp3');
 
 
     constructor(canvas, keyboard) {
@@ -137,7 +135,7 @@ class World {
     }
 
     increasePoisonBar(index) {
-        this.poisonBottle_sound.play();
+        poisonBottle_sound.play();
         this.character.addPoison();
         this.statusBarPoison.setPercentage(this.character.poison);
         this.level.poisons.splice(index, 1);
@@ -152,7 +150,7 @@ class World {
     }
 
     increaseCoinBar(index) {
-        this.coin_sound.play();
+        coin_sound.play();
         this.character.addCoin();
         this.statusBarCoins.setPercentage(this.character.coin);
         this.level.coins.splice(index, 1);

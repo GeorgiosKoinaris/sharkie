@@ -88,7 +88,6 @@ class Character extends MovableObject {
     ];
 
     world;
-    swimming_sound = new Audio('audio/swimming.mp3');
     isAttacking = false;
     lastMove = new Date().getTime();
     secondsWaiting = 8;
@@ -124,7 +123,7 @@ class Character extends MovableObject {
 
     swimAnimation() {
         setStoppableInterval(() => {
-            this.swimming_sound.pause();
+            swimming_sound.pause();
             if (this.canSwimRight()) {
                 this.swimRight();
             }
@@ -157,23 +156,23 @@ class Character extends MovableObject {
     swimRight() {
         this.moveRight();
         this.otherDirection = false;
-        this.swimming_sound.play();
+        swimming_sound.play();
     }
 
     swimLeft() {
         this.moveLeft();
         this.otherDirection = true;
-        this.swimming_sound.play();
+        swimming_sound.play();
     }
 
     swimUp() {
         this.moveUp();
-        this.swimming_sound.play();
+        swimming_sound.play();
     }
 
     swimDown() {
         this.moveDown();
-        this.swimming_sound.play();
+        swimming_sound.play();
     }
 
     characterAnimation() {

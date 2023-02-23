@@ -6,9 +6,12 @@ button_sound = new Audio('audio/button.mp3');
 bossAttack_sound = new Audio('audio/bossAttack.mp3');
 bossBattle_sound = new Audio('audio/bossBattle.mp3');
 bubble_sound = new Audio('audio/bubble.mp3');
+swimming_sound = new Audio('audio/swimming.mp3');
 win_sound = new Audio('audio/win.mp3');
 loose_sound = new Audio('audio/loose.mp3');
 hurt_sound = new Audio('audio/hurt.mp3');
+coin_sound = new Audio('audio/coin.mp3');
+poisonBottle_sound = new Audio('audio/bottle.mp3');
 intervalIds = [];
 
 
@@ -39,7 +42,9 @@ function howToPlay() {
 
 function startScreen() {
     button_sound.play();
+    stopGame();
     document.getElementById('startscreen').style.display = "flex";
+    document.getElementById('canvasScreen').style.display = "none";
     document.getElementById('instructionsScreen').style.display = "none";
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
@@ -76,6 +81,44 @@ function restartGame() {
     reloadMusic();
     init();
 }
+
+function muteSound() {
+    this.toggleVolumeBtn();
+    this.muteThemeSounds()
+    this.muteCharacterSounds()
+    this.muteBossSounds()
+    this.muteCollectablesSounds()
+}
+
+function toggleVolumeBtn() {
+    let volumeBtn = document.getElementById('volumeBtn');
+    if (volumeBtn.src.endsWith('volume.png')) {
+        volumeBtn.src = 'img/6.Botones/Key/mute.png';
+    } else {
+        volumeBtn.src = 'img/6.Botones/Key/volume.png';
+    }
+}
+
+function muteThemeSounds() {
+    theme_sound.muted = !theme_sound.muted;
+    bossBattle_sound.muted = !bossBattle_sound.muted;
+}
+
+function muteCharacterSounds() {
+    bubble_sound.muted = !bubble_sound.muted;
+    swimming_sound.muted = !swimming_sound.muted;
+    hurt_sound.muted = !hurt_sound.muted;
+}
+
+function muteBossSounds() {
+    bossAttack_sound.muted = !bossAttack_sound.muted;
+}
+
+function muteCollectablesSounds() {
+    coin_sound.muted = !coin_sound.muted;
+    poisonBottle_sound.muted = !poisonBottle_sound.muted;
+}
+
 
 function reloadMusic() {
     this.theme_sound.load();
