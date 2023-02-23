@@ -105,16 +105,17 @@ canvas {
     height: 25px;
 }
 
-.fullScreenBtn {
+
+/* .fullscreenBtn {
     position: absolute;
     top: 10px;
     right: 15px;
 }
 
-.fullScreenBtn img {
+.fullscreenBtn img {
     width: 85px;
     height: 25px;
-}
+} */
 
 .instructionsScreen {
     width: 720px;
