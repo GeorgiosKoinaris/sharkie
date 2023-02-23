@@ -35,8 +35,8 @@ h1 {
 }
 
 canvas {
-    background-color: black;
-    display: none;
+    /* background-color: black; */
+    display: block;
     border-radius: 20px;
     box-shadow: 0px 0 10px 10px rgb(0 0 0 / 20%);
 }
@@ -67,40 +67,46 @@ canvas {
 
 /**********************************specific classes*****************************************/
 
-.startscreen {
-    width: 720px;
-    height: 420px;
+#startscreen {
+    position: absolute;
+    top: 30px;
+    right: 50%;
+    left: 50%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.startscreen img {
+#startscreen img {
     width: 250px;
 }
 
 #canvasScreen {
     position: relative;
-    display: none;
+    height: 480px;
+    width: 720px;
 }
 
 .volumeBtn {
     position: absolute;
+    display: flex;
     top: 10px;
-    right: 150px;
+    right: 30px;
+    z-index: 1;
 }
 
 .volumeBtn img {
     height: 25px;
 }
 
-.menuBtn {
+#menuBtn {
     position: absolute;
+    display: none;
     top: 10px;
-    right: 30px;
+    right: 90px;
 }
 
-.menuBtn img {
+#menuBtn img {
     width: 85px;
     height: 25px;
 }
@@ -118,11 +124,13 @@ canvas {
 } */
 
 .instructionsScreen {
-    width: 720px;
-    height: 420px;
     display: none;
     flex-direction: column;
     justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .instructionsDesign {
@@ -130,6 +138,7 @@ canvas {
     align-items: center;
     justify-content: space-between;
     font-size: 35px;
+    padding: 15px;
 }
 
 .instructionDesignImg {
@@ -150,26 +159,27 @@ canvas {
 }
 
 #winningScreen {
-    width: 720px;
-    height: 420px;
     display: none;
+    justify-content: end;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-}
-
-.winningScreenImg {
+    position: absolute;
+    top: 0;
+    height: 100%;
     width: 100%;
+    background-image: url('img/6.Botones/Tittles/You win/Mesa de trabajo 1.png');
+    background-size: cover;
+    background-position: center;
     border-radius: 20px;
 }
 
 #loosingScreen {
-    width: 720px;
-    height: 420px;
     display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    position: absolute;
+    top: 100px;
+    padding: 20px;
 }
 
 .loosingScreenImg {
@@ -179,6 +189,7 @@ canvas {
 .bigButton {
     width: 250px;
     margin: 5px;
+    height: 70px;
 }
 
 
@@ -186,6 +197,9 @@ canvas {
 
 @media only screen and (max-width: 720px) {
     canvas {
+        width: 100%;
+    }
+    #canvasScreen {
         width: 100%;
     }
     h1 {
@@ -197,6 +211,9 @@ canvas {
     canvas {
         height: 100vh;
     }
+    /* #canvasScreen {
+        height: 100%;
+    } */
     h1 {
         display: none;
     }

@@ -27,11 +27,10 @@ function init() {
 
 function startGame() {
     theme_sound.play();
-    document.getElementById('canvas').style.display = "block";
-    document.getElementById('canvasScreen').style.display = "block";
     document.getElementById('startscreen').style.display = "none";
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
+    document.getElementById('menuBtn').style.display = "flex";
 }
 
 function howToPlay() {
@@ -41,28 +40,25 @@ function howToPlay() {
 }
 
 function startScreen() {
-    button_sound.play();
-    stopGame();
     document.getElementById('startscreen').style.display = "flex";
-    document.getElementById('canvasScreen').style.display = "none";
+    document.getElementById('menuBtn').style.display = "none";
     document.getElementById('instructionsScreen').style.display = "none";
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
+    button_sound.play();
+    stopGame();
 }
 
 function looseGame() {
     stopGame();
     document.getElementById('loosingScreen').style.display = 'flex';
-    document.getElementById('canvas').style.display = "none";
-    document.getElementById('canvasScreen').style.display = "none";
+    document.getElementById('menuBtn').style.display = "none";
     loose_sound.play();
 }
 
 function winGame() {
     stopGame();
     document.getElementById('winningScreen').style.display = 'flex';
-    document.getElementById('canvas').style.display = "none";
-    document.getElementById('canvasScreen').style.display = "none";
     win_sound.play();
 }
 
@@ -83,15 +79,15 @@ function restartGame() {
 }
 
 function muteSound() {
-    this.toggleVolumeBtn();
-    this.muteThemeSounds()
-    this.muteCharacterSounds()
-    this.muteBossSounds()
-    this.muteCollectablesSounds()
+    this.toggleVolumeBtnImg();
+    this.muteThemeSounds();
+    this.muteCharacterSounds();
+    this.muteBossSounds();
+    this.muteCollectablesSounds();
 }
 
-function toggleVolumeBtn() {
-    let volumeBtn = document.getElementById('volumeBtn');
+function toggleVolumeBtnImg() {
+    let volumeBtn = document.getElementById('volumeBtnImg');
     if (volumeBtn.src.endsWith('volume.png')) {
         volumeBtn.src = 'img/6.Botones/Key/mute.png';
     } else {
@@ -102,6 +98,8 @@ function toggleVolumeBtn() {
 function muteThemeSounds() {
     theme_sound.muted = !theme_sound.muted;
     bossBattle_sound.muted = !bossBattle_sound.muted;
+    win_sound.muted = !win_sound.muted;
+    loose_sound.muted = !loose_sound.muted;
 }
 
 function muteCharacterSounds() {
