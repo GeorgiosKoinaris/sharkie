@@ -64,11 +64,6 @@ canvas {
     cursor: pointer;
 }
 
-.button:hover {
-    transform: scale(1.02);
-    transition: 125ms ease-in-out;
-}
-
 
 /**********************************specific classes*****************************************/
 
@@ -88,7 +83,6 @@ canvas {
 
 #canvasScreen {
     position: relative;
-    height: 480px;
     width: 720px;
 }
 
@@ -120,13 +114,13 @@ canvas {
     height: 25px;
 }
 
-#panel2 {
+#touchInput {
     display: none;
     justify-content: space-between;
     align-items: end;
 }
 
-#panel2 img {
+#touchInput img {
     height: 30px;
     padding: 2px;
 }
@@ -150,7 +144,6 @@ canvas {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
 }
 
 .instructionsDesign {
@@ -221,12 +214,74 @@ canvas {
     }
     #canvasScreen {
         width: 100%;
+        /* height: 100%; */
     }
     h1 {
         display: none;
     }
-    #panel2 {
+    #touchInput {
         display: flex;
+    }
+    .bigButton {
+        width: 220px;
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    #startscreen img {
+        width: 170px;
+    }
+    .instructionDesignImg {
+        width: 160px;
+    }
+    .instructionsDesign {
+        font-size: 25px;
+    }
+    .key-F-image {
+        width: 50px;
+    }
+    .bigButton {
+        width: 160px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .instructionDesignImg {
+        width: 120px;
+    }
+    .instructionsDesign {
+        font-size: 20px;
+    }
+    #loosingScreen {
+        top: 75px;
+    }
+    .key-F-image {
+        width: 38px;
+    }
+    .menuButton img {
+        width: 70px;
+    }
+    .bigButton {
+        width: 120px;
+        height: 35px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #startscreen img {
+        width: 130px;
+    }
+    #menuBtn img {
+        width: 65px;
+        height: 20px;
+    }
+    #volumeBtn img {
+        height: 20px;
+    }
+    .instructionsDesign {
+        padding: 10px;
     }
 }
 
@@ -234,9 +289,6 @@ canvas {
     canvas {
         height: 100vh;
     }
-    /* #canvasScreen {
-        height: 100%;
-    } */
     h1 {
         display: none;
     }
