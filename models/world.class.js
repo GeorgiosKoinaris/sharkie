@@ -73,15 +73,6 @@ class World {
         }, 700);
     }
 
-    // checkCollisions() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (this.character.isColliding(enemy)) {
-    //             this.character.hit();
-    //             this.statusBarLife.setPercentage(this.character.energy);
-    //         }
-    //     });
-    // }
-
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
             this.level.endBoss.forEach((endBoss) => {
@@ -162,13 +153,6 @@ class World {
         this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.level.backgroundObjects);
 
-        this.ctx.translate(-this.camera_x, 0); //back 
-        //--------Space for fixed Objects---------//
-        this.addToMap(this.statusBarLife);
-        this.addToMap(this.statusBarCoins);
-        this.addToMap(this.statusBarPoison);
-        this.ctx.translate(this.camera_x, 0); //forwards 
-
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.endBoss);
@@ -177,6 +161,13 @@ class World {
         this.addObjectsToMap(this.throwingPoisonBubble);
         this.addObjectsToMap(this.level.poisons);
         this.addObjectsToMap(this.level.coins);
+
+        this.ctx.translate(-this.camera_x, 0); //back 
+        //--------Space for fixed Objects---------//
+        this.addToMap(this.statusBarLife);
+        this.addToMap(this.statusBarCoins);
+        this.addToMap(this.statusBarPoison);
+        this.ctx.translate(this.camera_x, 0); //forwards 
 
         this.ctx.translate(-this.camera_x, 0);
 
