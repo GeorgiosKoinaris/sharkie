@@ -169,5 +169,3 @@ function reloadMusic() {
 //     document.getElementById('instructionsScreen').style.width = "auto";
 //     document.getElementById('instructionsScreen').style.padding = "30px";
 // }
-
-// --------------------------------------keybind------------------------------------------//
