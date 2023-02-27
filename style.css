@@ -118,6 +118,10 @@ canvas {
     display: none;
     justify-content: space-between;
     align-items: end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #touchInput img {
@@ -206,7 +210,7 @@ canvas {
 }
 
 
-/*------Smartphones--------*/
+/*------------------------------------------Smartphones--------------------------------------------*/
 
 @media only screen and (max-width: 720px) {
     canvas {
@@ -214,13 +218,9 @@ canvas {
     }
     #canvasScreen {
         width: 100%;
-        /* height: 100%; */
     }
     h1 {
         display: none;
-    }
-    #touchInput {
-        display: flex;
     }
     .bigButton {
         width: 220px;
@@ -289,7 +289,55 @@ canvas {
     canvas {
         height: 100vh;
     }
+    #canvasScreen {
+        width: 100%;
+    }
     h1 {
         display: none;
+    }
+    .bigButton {
+        width: 220px;
+        height: 60px;
+    }
+}
+
+@media only screen and (max-height: 390px) {
+    #startscreen img {
+        width: 170px;
+    }
+    .bigButton {
+        width: 160px;
+        height: 50px;
+    }
+    .instructionDesignImg {
+        width: 160px;
+    }
+    .instructionsDesign {
+        font-size: 25px;
+    }
+    .key-F-image {
+        width: 50px;
+    }
+}
+
+@media only screen and (max-height: 330px) {
+    .instructionsDesign {
+        font-size: 20px;
+    }
+    .instructionsDesign {
+        padding: 10px;
+    }
+    .instructionDesignImg {
+        width: 140px;
+    }
+    .key-F-image {
+        width: 43px;
+    }
+    .menuButton img {
+        width: 80px;
+    }
+    .bigButton {
+        width: 120px;
+        height: 30px;
     }
 }

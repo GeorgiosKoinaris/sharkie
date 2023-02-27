@@ -31,11 +31,15 @@ function startGame() {
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
     document.getElementById('menuBtn').style.display = "flex";
+    if (this.checkScreenWidth() <= 720 || this.checkScreenHeight() <= 480) {
+        document.getElementById('touchInput').style.display = "flex";
+    }
 }
 
 function howToPlay() {
     document.getElementById('instructionsScreen').style.display = "flex";
     document.getElementById('startscreen').style.display = "none";
+    document.getElementById('touchInput').style.display = "none";
     button_sound.play();
 }
 
@@ -45,6 +49,7 @@ function startScreen() {
     document.getElementById('instructionsScreen').style.display = "none";
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
+    document.getElementById('touchInput').style.display = "none";
     button_sound.play();
     stopGame();
 }
@@ -53,12 +58,14 @@ function looseGame() {
     stopGame();
     document.getElementById('loosingScreen').style.display = 'flex';
     document.getElementById('menuBtn').style.display = "none";
+    document.getElementById('touchInput').style.display = "none";
     loose_sound.play();
 }
 
 function winGame() {
     stopGame();
     document.getElementById('winningScreen').style.display = 'flex';
+    document.getElementById('touchInput').style.display = "none";
     win_sound.play();
 }
 
@@ -84,6 +91,14 @@ function muteSound() {
     this.muteCharacterSounds();
     this.muteBossSounds();
     this.muteCollectablesSounds();
+}
+
+function checkScreenWidth() {
+    return window.innerWidth;
+}
+
+function checkScreenHeight() {
+    return window.innerHeight;
 }
 
 function toggleVolumeBtnImg() {
