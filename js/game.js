@@ -13,6 +13,9 @@ hurt_sound = new Audio('audio/hurt.mp3');
 coin_sound = new Audio('audio/coin.mp3');
 poisonBottle_sound = new Audio('audio/bottle.mp3');
 intervalIds = [];
+let audio1 = theme_sound.volume = 0.4;
+let audio2 = bossBattle_sound.volume = 0.4;
+let audio3 = win_sound.volume = 0.6;
 
 
 function init() {
@@ -21,8 +24,6 @@ function init() {
     world = new World(canvas, keyboard);
     reloadMusic();
     startGame();
-
-    // console.log('My character is', world.character);
 }
 
 function startGame() {

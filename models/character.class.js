@@ -112,6 +112,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_LONG_IDLE_SLEEP);
         this.swimAnimation();
         this.characterAnimation();
+        this.characterActions();
         this.isWaiting();
     }
 
@@ -177,19 +178,26 @@ class Character extends MovableObject {
 
     characterAnimation() {
         setStoppableInterval(() => {
-            if (this.prepareAttack()) {
-                this.attackPrepared();
-            }
+
             if (this.isDead()) {
                 this.deadAnimation();
             } else if (this.isHurt()) {
                 this.isHurtAnimation();
             } else if (this.isMoving()) {
                 this.moveAnimation();
-            } else if (this.isAttacking) {
-                this.attackAnimation();
             } else {
                 this.playIdleAnimations();
+            }
+        }, 100);
+    }
+
+    characterActions() {
+        setStoppableInterval(() => {
+            if (this.prepareAttack()) {
+                this.attackPrepared();
+            }
+            if (this.isAttacking) {
+                this.attackAnimation();
             }
         }, 100);
     }
@@ -202,6 +210,12 @@ class Character extends MovableObject {
         this.isAttacking = true;
         bubble_sound.play();
         this.currentImage = 0;
+    }
+
+    attackAnimation() {
+        this.playAnimation(this.IMAGES_ATTACK);
+        setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 50)
+        this.lastMove = new Date().getTime();
     }
 
     deadAnimation() {
@@ -220,12 +234,6 @@ class Character extends MovableObject {
 
     moveAnimation() {
         this.playAnimation(this.IMAGES_SWIM);
-        this.lastMove = new Date().getTime();
-    }
-
-    attackAnimation() {
-        setTimeout(() => this.isAttacking = false, this.IMAGES_ATTACK.length * 100)
-        this.playAnimation(this.IMAGES_ATTACK);
         this.lastMove = new Date().getTime();
     }
 
