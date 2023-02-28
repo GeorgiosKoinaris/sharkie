@@ -31,8 +31,6 @@ class Poison extends MovableObject {
     }
 
     animate() {
-        setStoppableInterval(() => {
-            this.playAnimation(this.IMAGES_POISON);
-        }, 150);
+        setStoppableInterval(() => this.playAnimation(this.IMAGES_POISON), 150);
     }
 }

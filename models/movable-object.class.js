@@ -16,9 +16,7 @@ class MovableObject extends DrawableObject {
     // Gravity for death under water
     applyGravityForDeath() {
         this.isApplyingGravityForDeath = true;
-        setStoppableInterval(() => {
-            this.y -= this.speedY;
-        }, 150)
+        setStoppableInterval(() => this.y -= this.speedY, 150)
     }
 
     isColliding(mo) {

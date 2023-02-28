@@ -52,9 +52,7 @@ class Jellyfish extends MovableObject {
             }
         }, 1000 / 60)
 
-        setStoppableInterval(() => {
-            this.playAnimation(this.IMAGES_SWIM);
-        }, 200)
+        setStoppableInterval(() => this.playAnimation(this.IMAGES_SWIM), 200)
     }
 
     animate() {
