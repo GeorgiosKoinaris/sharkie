@@ -29,32 +29,4 @@ class DrawableObject {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
-
-    // ---------------------this is for future modifications---------------------------//
-    // drawFrame(ctx) {
-    //     if (this.permittedFrame()) {
-    //         ctx.beginPath();
-    //         ctx.lineWidth = '6';
-    //         ctx.strokeStyle = 'red';
-    //         ctx.rect(this.x, this.y, this.width, this.height);
-    //         ctx.stroke();
-    //     }
-    //     if (this.permittedFrame()) {
-    //         ctx.beginPath();
-    //         ctx.lineWidth = '4';
-    //         ctx.strokeStyle = 'yellow';
-    //         ctx.rect(this.x + this.offset.x, this.y + this.offset.y, (this.x + this.width - this.offset.width) - (this.x + this.offset.x), (this.y + this.height - this.offset.height) - (this.y + this.offset.y));
-    //         ctx.stroke();
-    //     }
-    // }
-
-    // permittedFrame() {
-    //     return this instanceof Character ||
-    //         this instanceof PufferFish ||
-    //         this instanceof Jellyfish ||
-    //         this instanceof Endboss ||
-    //         this instanceof Poison ||
-    //         this instanceof ThrowableObjects ||
-    //         this instanceof Coin;
-    // }
 }

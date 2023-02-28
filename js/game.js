@@ -135,38 +135,3 @@ function reloadMusic() {
     this.theme_sound.load();
     this.bossBattle_sound.load();
 }
-
-
-// ---------------------this is for future modifications---------------------------//
-
-// function fullscreen() {
-//     let fullscreen = document.getElementById('fullscreen');
-//     this.enterFullscreen(fullscreen);
-//     this.fullscreenSwitch();
-// }
-
-// function enterFullscreen(element) {
-//     if (element.requestFullscreen) {
-//         element.requestFullscreen();
-//     } else if (element.msRequestFullscreen) { // for IE11 (remove June 15, 2022)
-//         element.msRequestFullscreen();
-//     } else if (element.webkitRequestFullscreen) { // iOS Safari
-//         element.webkitRequestFullscreen();
-//     }
-// }
-
-// function fullscreenSwitch() {
-//     if (window.enterFullscreen) {
-//         fullscreenStyle();
-//     }
-// }
-
-// function fullscreenStyle() {
-//     document.getElementById('canvas').style.width = "100%";
-//     document.getElementById('fullscreenBtn').style.display = "none";
-//     document.getElementById('loosingScreen').style.width = "auto";
-//     document.getElementById('winningScreen').style.width = "auto";
-//     document.getElementById('startscreen').style.width = "auto";
-//     document.getElementById('instructionsScreen').style.width = "auto";
-//     document.getElementById('instructionsScreen').style.padding = "30px";
-// }
