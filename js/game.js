@@ -32,9 +32,8 @@ function startGame() {
     document.getElementById('loosingScreen').style.display = "none";
     document.getElementById('winningScreen').style.display = "none";
     document.getElementById('menuBtn').style.display = "flex";
-    if (this.checkScreenWidth() <= 720 || this.checkScreenHeight() <= 480) {
+    if (this.checkScreenWidth() <= 720 || this.checkScreenHeight() <= 480)
         document.getElementById('touchInput').style.display = "flex";
-    }
 }
 
 function howToPlay() {
@@ -104,11 +103,10 @@ function checkScreenHeight() {
 
 function toggleVolumeBtnImg() {
     let volumeBtn = document.getElementById('volumeBtnImg');
-    if (volumeBtn.src.endsWith('volume.png')) {
+    if (volumeBtn.src.endsWith('volume.png'))
         volumeBtn.src = 'img/6.Botones/Key/mute.png';
-    } else {
+    else
         volumeBtn.src = 'img/6.Botones/Key/volume.png';
-    }
 }
 
 function muteThemeSounds() {
