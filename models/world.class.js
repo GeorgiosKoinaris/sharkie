@@ -48,9 +48,7 @@ class World {
         if (this.bubbleThrow) {
             let bubble = new ThrowableObjects(this.character.x + 140, this.character.y + 85, false);
             this.throwingBubble.push(bubble);
-            setTimeout(() => {
-                this.bubbleThrow = false;
-            }, 700);
+            setTimeout(() => this.bubbleThrow = false, 700);
         }
     }
 
@@ -68,9 +66,7 @@ class World {
             this.character.decreasePoison();
             this.statusBarPoison.setPercentage(this.character.poison);
         }
-        setTimeout(() => {
-            this.bubbleThrow = false;
-        }, 700);
+        setTimeout(() => this.bubbleThrow = false, 700);
     }
 
     checkCollisions() {
@@ -119,9 +115,8 @@ class World {
 
     checkPoisonCollision() {
         this.level.poisons.forEach((poison, index) => {
-            if (this.character.isColliding(poison)) {
+            if (this.character.isColliding(poison))
                 this.increasePoisonBar(index);
-            }
         });
     }
 
@@ -134,9 +129,8 @@ class World {
 
     checkCoinCollision() {
         this.level.coins.forEach((coin, index) => {
-            if (this.character.isColliding(coin)) {
+            if (this.character.isColliding(coin))
                 this.increaseCoinBar(index);
-            }
         });
     }
 
@@ -185,16 +179,14 @@ class World {
     }
 
     addToMap(mo) {
-        if (mo.otherDirection) {
+        if (mo.otherDirection)
             this.flipImage(mo);
-        }
 
         mo.draw(this.ctx);
         // mo.drawFrame(this.ctx);
 
-        if (mo.otherDirection) {
+        if (mo.otherDirection)
             this.flipImageBack(mo);
-        }
     }
 
     flipImage(mo) {

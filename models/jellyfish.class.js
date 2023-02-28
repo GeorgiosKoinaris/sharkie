@@ -38,18 +38,14 @@ class Jellyfish extends MovableObject {
 
     swimAnimation() {
         setStoppableInterval(() => {
-            if (this.y <= 0) {
+            if (this.y <= 0)
                 this.direction = 'down'
-            }
-            if (this.y > 280) {
+            if (this.y > 280)
                 this.direction = 'up'
-            }
-            if (this.direction == 'down') {
+            if (this.direction == 'down')
                 this.moveDown();
-            }
-            if (this.direction == 'up') {
+            if (this.direction == 'up')
                 this.moveUp();
-            }
         }, 1000 / 60)
 
         setStoppableInterval(() => this.playAnimation(this.IMAGES_SWIM), 200)

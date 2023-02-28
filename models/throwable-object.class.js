@@ -14,11 +14,10 @@ class ThrowableObjects extends MovableObject {
     }
 
     throw () {
-        if (this.isPoison) {
+        if (this.isPoison)
             this.loadImage(this.IMAGE_POISON_BUBBLE);
-        } else {
+        else
             this.loadImage(this.IMAGE_BUBBLE);
-        }
         setStoppableInterval(() => this.x += 10, 35);
     }
 }

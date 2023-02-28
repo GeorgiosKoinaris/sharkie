@@ -125,18 +125,14 @@ class Character extends MovableObject {
     swimAnimation() {
         setStoppableInterval(() => {
             swimming_sound.pause();
-            if (this.canSwimRight()) {
+            if (this.canSwimRight())
                 this.swimRight();
-            }
-            if (this.canSwimLeft()) {
+            if (this.canSwimLeft())
                 this.swimLeft();
-            }
-            if (this.canSwimUp()) {
+            if (this.canSwimUp())
                 this.swimUp();
-            }
-            if (this.canSwimDown()) {
+            if (this.canSwimDown())
                 this.swimDown();
-            }
             this.world.camera_x = -this.x + 30;
         }, 1000 / 60);
     }
@@ -178,27 +174,23 @@ class Character extends MovableObject {
 
     characterAnimation() {
         setStoppableInterval(() => {
-
-            if (this.isDead()) {
+            if (this.isDead())
                 this.deadAnimation();
-            } else if (this.isHurt()) {
+            else if (this.isHurt())
                 this.isHurtAnimation();
-            } else if (this.isMoving()) {
+            else if (this.isMoving())
                 this.moveAnimation();
-            } else {
+            else
                 this.playIdleAnimations();
-            }
         }, 100);
     }
 
     characterActions() {
         setStoppableInterval(() => {
-            if (this.prepareAttack()) {
+            if (this.prepareAttack())
                 this.attackPrepared();
-            }
-            if (this.isAttacking) {
+            if (this.isAttacking)
                 this.attackAnimation();
-            }
         }, 100);
     }
 
@@ -256,22 +248,19 @@ class Character extends MovableObject {
 
     addCoin() {
         this.coin += 1;
-        if (this.coin <= 0) {
+        if (this.coin <= 0)
             this.coin = 0;
-        }
     }
 
     addPoison() {
         this.poison += 1;
-        if (this.poison <= 0) {
+        if (this.poison <= 0)
             this.poison = 0;
-        }
     }
 
     decreasePoison() {
         this.poison -= 1;
-        if (this.poison <= 0) {
+        if (this.poison <= 0)
             this.poison = 0;
-        }
     }
 }

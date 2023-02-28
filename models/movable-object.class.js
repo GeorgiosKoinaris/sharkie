@@ -28,11 +28,10 @@ class MovableObject extends DrawableObject {
 
     hit() {
         this.energy -= 5;
-        if (this.energy <= 0) {
+        if (this.energy <= 0)
             this.energy = 0;
-        } else {
+        else
             this.lastHit = new Date().getTime();
-        }
     }
 
     isHurt() {
@@ -53,9 +52,8 @@ class MovableObject extends DrawableObject {
     }
 
     moveLeft() {
-        if (!this.isApplyingGravityForDeath) {
+        if (!this.isApplyingGravityForDeath)
             this.x -= this.speed;
-        }
     }
 
     moveRight() {

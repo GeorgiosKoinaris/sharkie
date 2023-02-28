@@ -28,18 +28,17 @@ class StatusBarPoison extends DrawableObject {
     }
 
     resolveImageIndex() {
-        if (this.percentage == 5) {
+        if (this.percentage == 5)
             return 5;
-        } else if (this.percentage == 4) {
+        else if (this.percentage == 4)
             return 4;
-        } else if (this.percentage == 3) {
+        else if (this.percentage == 3)
             return 3;
-        } else if (this.percentage == 2) {
+        else if (this.percentage == 2)
             return 2;
-        } else if (this.percentage == 1) {
+        else if (this.percentage == 1)
             return 1;
-        } else {
+        else
             return 0;
-        }
     }
 }

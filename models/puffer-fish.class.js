@@ -36,9 +36,8 @@ class PufferFish extends MovableObject {
     }
 
     swimAnimation() {
-        setStoppableInterval(() => this.moveLeft(), 1000 / 60)
-
-        setStoppableInterval(() => this.playAnimation(this.IMAGES_SWIM), 200)
+        setStoppableInterval(() => this.moveLeft(), 1000 / 60);
+        setStoppableInterval(() => this.playAnimation(this.IMAGES_SWIM), 200);
     }
 
 

@@ -29,6 +29,8 @@ class DrawableObject {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
+
+    // ---------------------this is for future modifications---------------------------//
     // drawFrame(ctx) {
     //     if (this.permittedFrame()) {
     //         ctx.beginPath();

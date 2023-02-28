@@ -138,6 +138,9 @@ function reloadMusic() {
     this.bossBattle_sound.load();
 }
 
+
+// ---------------------this is for future modifications---------------------------//
+
 // function fullscreen() {
 //     let fullscreen = document.getElementById('fullscreen');
 //     this.enterFullscreen(fullscreen);

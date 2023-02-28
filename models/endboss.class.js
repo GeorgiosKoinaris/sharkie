@@ -4,6 +4,7 @@ class Endboss extends MovableObject {
     width = 350;
     speed = 2.5;
     y = -40;
+    image = 0;
 
 
     IMAGES_SPAWNING = [
@@ -81,26 +82,29 @@ class Endboss extends MovableObject {
     }
 
     animate() {
-        let i = 0
         setStoppableInterval(() => {
-            if (this.bossAppears()) {
-                i = 0;
-                this.hadFirstContact = true;
-                setStoppableInterval(() => {
-                    this.bossSound();
-                    if (i < 10) {
-                        this.playAnimation(this.IMAGES_SPAWNING);
-                    } else if (this.hadFirstContact) {
-                        this.bossActions();
-                    }
-                    i++;
-                }, 200);
-            }
+            if (this.bossAppears())
+                this.bossSpawn();
         }, 100);
     }
 
     bossAppears() {
         return world.character.x > 2189 && !this.hadFirstContact;
+    }
+
+    bossSpawn() {
+        this.image = 0;
+        this.hadFirstContact = true;
+        setStoppableInterval(() => this.bossFightActive(), 200);
+    }
+
+    bossFightActive() {
+        this.bossSound();
+        if (this.image < 10)
+            this.playAnimation(this.IMAGES_SPAWNING);
+        else if (this.hadFirstContact)
+            this.bossActions();
+        this.image++;
     }
 
     bossSound() {
@@ -110,25 +114,23 @@ class Endboss extends MovableObject {
 
     swimToCharacter() {
         setStoppableInterval(() => {
-            if (this.hadFirstContact) {
+            if (this.hadFirstContact)
                 this.moveLeft();
-            }
         }, 1000 / 60)
     }
 
     bossActions() {
-        if (this.isDead()) {
+        if (this.isDead())
             this.deadAnimation();
-        } else if (this.isHurt()) {
+        else if (this.isHurt())
             this.hurtAnimation();
-        } else if (this.isAttacking) {
+        else if (this.isAttacking) {
             this.attackAnimation();
             bossAttack_sound.play();
-        } else if (this.bossReachLevelEnd()) {
+        } else if (this.bossReachLevelEnd())
             looseGame();
-        } else {
+        else
             this.playAnimation(this.IMAGES_SWIM);
-        }
     }
 
     bossReachLevelEnd() {
@@ -156,10 +158,9 @@ class Endboss extends MovableObject {
 
     hit() {
         this.energy -= 25;
-        if (this.energy <= 0) {
+        if (this.energy <= 0)
             this.energy = 0;
-        } else {
+        else
             this.lastHit = new Date().getTime();
-        }
     }
 }
